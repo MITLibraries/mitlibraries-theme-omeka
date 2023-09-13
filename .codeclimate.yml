@@ -1,5 +1,5 @@
 plugins:
- sass-lint:
+  sass-lint:
     enabled: true
     rules:
       indentation:
@@ -7,3 +7,5 @@ plugins:
          -
             size: 4
       space-after-colon: true
+  stylelint:
+    enabled: true

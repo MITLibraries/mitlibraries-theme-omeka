@@ -3,10 +3,9 @@
 // None of these rules are real - just meant to demonstrate some things, like:
 // - Variable substitution
 body {
-    border: 5px solid $fakeblue;
+	border: 5px solid $fakeblue;
 }
 
 // - Autoprefixing
-::placeholder {
-    color: $fakegray;
-}
+// - This should trigger all sorts of warnings
+::placeholder{color:rgb(214,72,128);}
