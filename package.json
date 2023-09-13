@@ -1,0 +1,28 @@
+{
+  "name": "mitlibraries-theme-omeka",
+  "version": "0.0.1",
+  "description": "An Omeka S theme to implement the MIT Libraries' branding materials",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MITLibraries/mitlibraries-theme-omeka.git"
+  },
+  "author": "MIT Libraries",
+  "bugs": {
+    "url": "https://github.com/MITLibraries/mitlibraries-theme-omeka/issues"
+  },
+  "homepage": "https://github.com/MITLibraries/mitlibraries-theme-omeka#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}

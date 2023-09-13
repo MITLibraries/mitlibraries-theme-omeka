@@ -1,0 +1,12 @@
+@import 'colors';
+
+// None of these rules are real - just meant to demonstrate some things, like:
+// - Variable substitution
+body {
+    border: 5px solid $fakeblue;
+}
+
+// - Autoprefixing
+::placeholder {
+    color: $fakegray;
+}
