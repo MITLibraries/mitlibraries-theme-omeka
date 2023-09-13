@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "plugins": [
+    "stylelint-stylistic"
+  ],
+  "rules": {
+    "stylistic/block-opening-brace-newline-after": "always",
+    "stylistic/block-opening-brace-space-before": "always",
+    "color-named": "never",
+    "stylistic/declaration-colon-space-after": "always",
+    "stylistic/indentation": 4
+  }
+}

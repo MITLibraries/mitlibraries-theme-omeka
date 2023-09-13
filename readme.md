@@ -4,3 +4,32 @@ This [Omeka S](https://omeka.org/s/) theme implements the MIT Libraries' current
 web applications.
 
 Additional Omeka S themes can be found at https://github.com/omeka-s-themes.
+
+## Using this theme
+
+This theme should be placed in the themes directory within your Omeka S
+instance. It should then be available for selection by any exhibit which needs
+it.
+
+## Developing this theme
+
+The [Omeka S Developer Documentation for themes](https://omeka.org/s/docs/developer/themes/) should be consulted for help
+adding anything to this theme.
+
+### Stylesheets
+
+There are two general requirements for stylesheets in this theme:
+
+1. The final contents of all stylesheets in `asset\css` should be compiled by
+   Sass, rather than maintained by hand.
+2. The Sass stylesheets themselves should conform to the [Omeka S style guide](https://omeka.org/s/docs/developer/themes/style_guide/).
+
+To assist with these requirements, the theme provides tooling for each.
+
+The compilation of stylesheets can be performed via either `npm run build` or
+`gulp css`. If you want to leave a process running in your terminal while you
+work, use `gulp css:watch`. There is also a GitHub Action that will confirm that
+this compilation has been performed on all PRs.
+
+The Omeka S style guide can be checked via `npx stylelint "**/*.scss"`. There is
+a GitHub Action that will perform these checks on all PRs as well.
