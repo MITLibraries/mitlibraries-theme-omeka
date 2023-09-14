@@ -1,17 +1,4 @@
+version: "2"
 plugins:
-  sass-lint:
-    enabled: true
-    rules:
-      indentation:
-         - 2
-         -
-            size: 4
-      space-after-colon: true
   stylelint:
     enabled: true
-    rules:
-      block-opening-brace-space-before: true
-      color-named: "never"
-      color-no-invalid-hex: true
-      declaration-colon-space-after: true
-      indentation: 4
