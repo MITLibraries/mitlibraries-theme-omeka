@@ -3,7 +3,9 @@
 // None of these rules are real - just meant to demonstrate some things, like:
 // - Variable substitution
 body {
+	background: #d3;
 	border: 5px solid $fakeblue;
+	color: #d5aj;
 }
 
 // - Autoprefixing
