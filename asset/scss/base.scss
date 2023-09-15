@@ -11,7 +11,9 @@ body {
     color: $fakegray;
 }
 
-.foo{color: #fdd7;
-    margin:1px solid red;
-  padding: #fd;
+// Now compliant with style rules
+.foo {
+    color: #fdd7;
+    margin: 1px solid #f00;
+    padding: #fd0;
 }
