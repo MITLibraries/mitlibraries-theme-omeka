@@ -1,5 +1,7 @@
 <?php
 $translate = $this->plugin('translate');
+$analytics_property = $this->themeSetting('analytics_property');
+
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Source+Code+Pro|Lato:400,400italic,700,700italic');
@@ -29,5 +31,6 @@ $userBar = $this->userBar();
         <footer>
             <span class="powered-by"><?php echo $translate('Powered by Omeka S'); ?></span>
         </footer>
+        <?php echo $this->FooterHelper( $analytics_property ); ?>
     </body>
 </html>
