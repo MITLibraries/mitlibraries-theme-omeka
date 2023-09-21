@@ -1,0 +1,25 @@
+name: Ensure pre-built CSS
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup NPM
+      uses: actions/setup-node@v3
+
+    - run: npm install --production=false
+
+    - run: npm list
+
+    - run: npm run build
+
+    - uses: CatChen/check-git-status-action@v1
+      with:
+        fail-if-not-clean: true
