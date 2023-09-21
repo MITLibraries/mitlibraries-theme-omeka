@@ -29,8 +29,8 @@ $userBar = $this->userBar();
             <?php echo $this->content; ?>
         </div>
         <footer>
+            <?php echo $this->FooterHelper($analytics_property); ?>
             <span class="powered-by"><?php echo $translate('Powered by Omeka S'); ?></span>
         </footer>
-        <?php echo $this->FooterHelper( $analytics_property ); ?>
     </body>
 </html>

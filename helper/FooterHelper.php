@@ -1,13 +1,20 @@
-<?php 
+<?php
+
+/**
+ * A demonstration helper class that mostly exists to give our PHP analysis
+ * tools something to work with.
+ *
+ * @url https://omeka.org/s/docs/developer/themes/theme_functions/
+ */
+
 namespace OmekaTheme\Helper;
 
 use Laminas\View\Helper\AbstractHelper;
 
-class FooHelper extends AbstractHelper
+class FooterHelper extends AbstractHelper
 {
-    public function __invoke($msg = '') 
+    public function __invoke($msg = '')
     {
-        // your code here
-        echo "Helper: ${msg}";
+        echo "<span>Helper: {$msg}</span>";
     }
 }
