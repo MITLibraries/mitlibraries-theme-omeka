@@ -1,4 +1,4 @@
-name: Require built CSS
+name: Ensure pre-built CSS
 
 on: [push]
 
