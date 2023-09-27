@@ -1,6 +1,6 @@
 {
     "name": "mitlibraries/mitlibraries-theme-omeka",
-    "description": "Description here",
+    "description": "An Omeka S theme to implement the MIT Libraries' branding materials",
     "type": "omeka-theme",
     "authors": [
         {
@@ -25,5 +25,8 @@
         "lint": [
             "phpcs"
         ]
+    },
+    "require": {
+        "composer/installers": "^2.2"
     }
 }
