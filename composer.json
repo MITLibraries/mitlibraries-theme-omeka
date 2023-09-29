@@ -1,0 +1,32 @@
+{
+    "name": "mitlibraries/mitlibraries-theme-omeka",
+    "description": "An Omeka S theme to implement the MIT Libraries' branding materials",
+    "type": "omeka-theme",
+    "authors": [
+        {
+            "name": "MIT Libraries"
+        }
+    ],
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "syntax": [
+            "find . -path ./vendor -prune -o \\( -name '*.php' \\) -exec php -d error_reporting=E_ALL -lf {} \\;",
+            "find . -path ./vendor -prune -o \\( -name '*.phtml' \\) -exec php -d error_reporting=E_ALL -lf {} \\;"
+        ],
+        "lint": [
+            "phpcs"
+        ]
+    },
+    "require": {
+        "composer/installers": "^2.2"
+    }
+}
