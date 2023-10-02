@@ -1,4 +1,17 @@
 @import 'colors';
+@import 'variables';
+
+// ----------------------------
+// Style library overrides
+// ----------------------------
+// * We need to correct the path to the network graphic in the header and footer.
+.wrap-header {
+    background-image: url( $network );
+}
+
+.wrap-footer {
+    background-image: url( $network );
+}
 
 // None of these rules are real - just meant to demonstrate some things, like:
 // - Variable substitution

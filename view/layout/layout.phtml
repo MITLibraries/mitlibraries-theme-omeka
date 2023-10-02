@@ -5,7 +5,8 @@ $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1')
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Source+Code+Pro|Lato:400,400italic,700,700italic');
 $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
 $this->headLink()->appendStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
-$this->headLink()->appendStylesheet($this->assetUrl('css/style.css', 'Omeka'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/libraries-main.min.css'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/base.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->trigger('view.layout');
@@ -19,15 +20,22 @@ $userBar = $this->userBar();
         <?php echo $this->headLink(); ?>
         <?php echo $this->headStyle(); ?>
         <?php echo $this->headScript(); ?>
+        <link rel="icon" type="image/x-icon" href="<?php echo $this->assetUrl('/img/mitlib-style/favicon.ico'); ?>">
     </head>
-    <?php echo $this->htmlElement('body')->appendAttribute('class', 'minimal'); ?>
+    <?php echo $this->htmlElement('body')->appendAttribute('class', ''); ?>
+        <a id="skip" class="skip sr sr-focusable" href="#content">Skip to main content</a>
         <?php echo $userBar; ?>
-        <div id="content" role="main">
-            <?php echo $this->messages(); ?>
-            <?php echo $this->content; ?>
+        <div class="wrap-page">
+            <?php echo $this->partial('mitlib-style/header-site-slim'); ?>
+            <div class="wrap-outer-content layout-band">
+                <div class="wrap-content">
+                    <div id="content-main" class="content-main" role="main">
+                        <?php echo $this->messages(); ?>
+                        <?php echo $this->content; ?>
+                    </div>
+                </div>
+            </div>
+            <?php echo $this->partial('mitlib-style/footer-site-slim'); ?>
         </div>
-        <footer>
-            <span class="powered-by"><?php echo $translate('Powered by Omeka S'); ?></span>
-        </footer>
     </body>
 </html>
