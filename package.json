@@ -1,6 +1,6 @@
 {
   "name": "mitlibraries-theme-omeka",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An Omeka S theme to implement the MIT Libraries' branding materials",
   "main": "gulpfile.js",
   "scripts": {
