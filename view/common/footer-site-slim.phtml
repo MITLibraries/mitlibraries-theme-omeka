@@ -1,7 +1,3 @@
-<span id="footer-site-slim" class="sr">slim footer example</span>
-
-<!-- begin footer-site-slim -->
-
 <footer>
 <div class="wrap-outer-footer layout-band">
     <div class="wrap-footer footer-slim">
@@ -10,7 +6,7 @@
                 <div class="wrap-logo-lib">
                     <a href="https://libraries.mit.edu" class="logo-mit-lib" alt="MIT Libraries Logo">
                         <span class="sr">MIT Libraries home</span>
-                        <img src="{{ '/dest/i/mitlib-wordmark.svg' | relative_url }}" alt="MIT Libraries logo">
+                        <img src="<?php echo $this->assetUrl('img/mitlib-style/mitlib-wordmark.svg'); ?>" alt="MIT Libraries logo">
                     </a>
                 </div>
                 <div class="wrap-social">

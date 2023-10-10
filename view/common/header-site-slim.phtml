@@ -1,7 +1,3 @@
-<span id="header-site-slim" class="sr">slim header example</span>
-
-<!-- begin header-site-slim -->
-
 <div class="wrap-outer-header layout-band">
   <div class="wrap-header">
     <header class="header-site header-slim" role="banner">
@@ -9,7 +5,7 @@
         <h1 class="name-site group nav-logo">
           <a href="https://libraries.mit.edu/" class="logo-mit-lib">
             <span class="sr">MIT Libraries home</span>
-            <img src="{{ '/dest/i/mitlib-wordmark.svg' | relative_url }}" alt="MIT Libraries logo">
+            <img src="<?php echo $this->assetUrl('img/mitlib-style/mitlib-wordmark.svg'); ?>" alt="MIT Libraries logo">
           </a>
         </h1>
       </div>
