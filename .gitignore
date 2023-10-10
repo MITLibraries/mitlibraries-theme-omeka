@@ -1,4 +1,6 @@
-.DS_Store
-node_modules
-npm-debug.log
+/node_modules/
+/tmp/
 /vendor/
+
+.DS_Store
+npm-debug.log
