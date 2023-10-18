@@ -7,8 +7,69 @@
 // * We need to correct the path to the network graphic in the header and footer.
 .wrap-header {
     background-image: url( $network );
+
+    header {
+        .wrap-header-core {
+            width: 85%;
+        }
+
+        .wrap-header-supp {
+            width: 13%;
+        }
+
+        .logo-mit-lib {
+            border-right: 1px solid $white;
+            margin-right: 2rem;
+            padding-right: 2rem;
+        }
+
+        .platform-name {
+            color: #fff;
+            font-size: 2.8rem;
+            text-decoration: none;
+            vertical-align: middle;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .wrap-footer {
     background-image: url( $network );
+}
+
+.wrap-footer-institute {
+    .footer-info-institute {
+        align-items: start;
+
+        .license {
+            font-size: 1.2rem;
+            margin-top: inherit;
+            max-width: 40rem;
+        }
+    }
+}
+
+@media (width <= 600px) {
+    .wrap-header {
+        header {
+            .logo-mit-lib {
+                border-right: none;
+                margin-right: inherit;
+                padding-right: inherit;
+            }
+
+            .platform-name {
+                display: block;
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    .wrap-header-supp {
+        vertical-align: top;
+    }
 }
