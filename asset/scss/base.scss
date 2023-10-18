@@ -7,6 +7,26 @@
 // * We need to correct the path to the network graphic in the header and footer.
 .wrap-header {
     background-image: url( $network );
+
+    header {
+        .logo-mit-lib {
+            border-right: 1px solid $white;
+            margin-right: 20px;
+            padding-right: 20px;
+        }
+
+        .platform-name {
+            color: #fff;
+            font-size: 3rem;
+            text-decoration: none;
+            vertical-align: middle;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .wrap-footer {
@@ -29,4 +49,25 @@ body {
     color: #fdd7;
     margin: 1px solid #f00;
     padding: #fd0;
+}
+
+@media (width <= 600px) {
+    .wrap-header {
+        header {
+            .logo-mit-lib {
+                border-right: none;
+                margin-right: inherit;
+                padding-right: inherit;
+            }
+
+            .platform-name {
+                display: block;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .wrap-header-supp {
+        vertical-align: top;
+    }
 }
