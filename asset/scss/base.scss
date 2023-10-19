@@ -31,6 +31,10 @@
 
 .wrap-footer {
     background-image: url( $network );
+
+    .wrap-middle {
+        justify-content: flex-end;
+    }
 }
 
 @media (width <= 600px) {
