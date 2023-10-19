@@ -1,0 +1,11 @@
+@import 'colors';
+@import 'variables';
+
+$color: $black;
+$color-menu-accent: $black;
+$color-menu-accent-arrow: $white;
+$color-menu-accent-text: $white;
+$color-menu-arrow: $black;
+$color-menu-background: $gray-l3;
+
+@import 'variants/all';

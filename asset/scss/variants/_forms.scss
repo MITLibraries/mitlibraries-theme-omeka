@@ -1,0 +1,8 @@
+form {
+    .field:active,
+    .field:focus,
+    .field:focus-visible {
+        border-color: $color;
+        box-shadow: 0 0 5px $color;
+    }
+}

@@ -1,0 +1,11 @@
+@import 'colors';
+@import 'variables';
+
+$color: $mit;
+$color-menu-accent: $mit;
+$color-menu-accent-arrow: $white;
+$color-menu-accent-text: $white;
+$color-menu-arrow: $mit;
+$color-menu-background: $gray-silver;
+
+@import 'variants/all';

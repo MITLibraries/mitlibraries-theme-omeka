@@ -1,3 +1,4 @@
+// Grayscale
 $white: rgb(255 255 255);
 $white-warm: rgb(237 232 226);
 $gray: rgb(89 89 89);
@@ -5,6 +6,14 @@ $gray-l2: rgb(204 204 204);
 $gray-l3: rgb(222 222 222);
 $gray-l4: rgb(243 243 243);
 $gray-warm: rgb(198 182 163);
+$gray-silver: rgb(139 149 158);
 $black: rgb(0 0 0);
 $shadow: rgb(0 0 0 / 50%);
 $shadow-dark: rgb(0 0 0 / 70%);
+
+// Standard colors (these variants have sufficient contrast).
+$mit: #750014;
+$blue: rgb(0 0 255);
+$magenta: rgb(158 0 158);
+$orange: rgb(138 69 0);
+$red: rgb(163 0 0);
