@@ -39,6 +39,10 @@
 
 .wrap-footer {
     background-image: url( $network );
+
+    .wrap-middle {
+        justify-content: flex-end;
+    }
 }
 
 .wrap-footer-institute {
