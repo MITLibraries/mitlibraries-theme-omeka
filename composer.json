@@ -23,7 +23,8 @@
             "find . -path ./vendor -prune -o \\( -name '*.phtml' \\) -exec php -d error_reporting=E_ALL -lf {} \\;"
         ],
         "lint": [
-            "phpcs"
+            "phpcs",
+            "npx stylelint '**/*.scss'"
         ]
     },
     "require": {
