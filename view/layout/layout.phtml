@@ -29,6 +29,11 @@ $userBar = $this->userBar();
         <?php echo $userBar; ?>
         <div class="wrap-page">
             <?php echo $this->partial('common/header-site-slim'); ?>
+            <div class="wrap-outer-header-local layout-band">
+                <div class="wrap-header-local">
+                    <?php echo $this->partial('common/navigation'); ?>
+                </div>
+            </div>
             <div class="wrap-outer-content layout-band">
                 <div class="wrap-content">
                     <div id="content-main" class="content-main" role="main">
