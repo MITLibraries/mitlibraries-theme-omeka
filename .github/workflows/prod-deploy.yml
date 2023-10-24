@@ -1,0 +1,13 @@
+name: deploy-to-stage
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy-theme:
+    name: deploy-theme
+    runs-on: [self-hosted, linux, prod]
+    steps:
+      - uses: actions/checkout@v4
+      - name: deploy-theme
+        run: make deploy

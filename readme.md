@@ -1,20 +1,25 @@
 # MIT Libraries Omeka Theme
 
-This [Omeka S](https://omeka.org/s/) theme implements the MIT Libraries' current branding identity for
-web applications.
+This [Omeka S](https://omeka.org/s/) theme implements the MIT Libraries' current branding identity for web applications.
 
 Additional Omeka S themes can be found at https://github.com/omeka-s-themes.
 
 ## Using this theme
 
-This theme should be placed in the themes directory within your Omeka S
-instance. It should then be available for selection by any exhibit which needs
-it.
+This theme should be placed in the themes directory within your Omeka S instance. It should then be available for selection by any exhibit which needs it.
 
 ## Developing this theme
 
-The [Omeka S Developer Documentation for themes](https://omeka.org/s/docs/developer/themes/) should be consulted for help
-adding anything to this theme.
+The [Omeka S Developer Documentation for themes](https://omeka.org/s/docs/developer/themes/) should be consulted for help adding anything to this theme.
+
+## Deploying this theme
+
+This is automatically deployed to stage and prod via GitHub Actions. See [ADR#0004](./docs/architecture-decisions/0004-github-runner-for-automated-deployment.md) for the decision to do this. See [deployment-automation](./docs/reference/deployment-automation.md) for the details of how to setup this automation. The configuration follows our standard GitHub-flow deployment model:
+
+* A merge to `main` triggers a deploy of the theme to the stage server
+* A tagged release on `main` triggers a deploy of the theme to the prod server
+
+Only changes in the four key directories are tracked for automation: `asset/`, `config/`, `helper/`, and `view/`.
 
 ### Stylesheets
 

@@ -1,0 +1,19 @@
+name: deploy-to-stage
+on:
+  push:
+    paths:
+      - 'asset/**'
+      - 'config/**'
+      - 'helper/**'
+      - 'view/**'
+    branches:
+      - main
+
+jobs:
+  deploy-theme:
+    name: deploy-theme
+    runs-on: [self-hosted, linux, stage]
+    steps:
+      - uses: actions/checkout@v4
+      - name: deploy-theme
+        run: make deploy

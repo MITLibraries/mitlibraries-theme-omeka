@@ -4,7 +4,7 @@ Date: 2023-10-13
 
 ## Status
 
-Proposed
+Accepted
 
 ## Context
 
@@ -14,8 +14,8 @@ We need a simple, automated, and secure way for theme updates to be deployed to 
 
 * We will configure each of the host servers as a GitHub Runner, linked only to this repository
   * This will include updates to the repository configuration
-  * This will include the installation (via `ssh`) of the GitHub Runner application on the host servers
-* We will create GitHub Action workflows to run the theme deployment commands (e.g., `git clone`) on the servers.
+  * This will include the installation of the GitHub Runner application on the host servers
+* We will create GitHub Action workflows to run the theme deployment commands on the servers.
   * The deployment to the staging server will be triggered by a merge to the `main` branch
   * The deployment to the production server will be triggered by a tagged release on the `main` branch
 
