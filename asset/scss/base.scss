@@ -34,6 +34,12 @@
                 text-decoration: underline;
             }
         }
+
+        .link-logo-mit {
+            img {
+                height: 3.5rem;
+            }
+        }
     }
 }
 
@@ -48,6 +54,15 @@
 .wrap-footer-institute {
     .footer-info-institute {
         align-items: start;
+
+        .link-logo-mit {
+            margin-right: 5rem;
+            min-width: 15rem;
+
+            img {
+                height: 3.5rem;
+            }
+        }
 
         .license {
             font-size: 1.2rem;
