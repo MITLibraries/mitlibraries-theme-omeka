@@ -2,7 +2,7 @@
 
 This [Omeka S](https://omeka.org/s/) theme implements the MIT Libraries' current branding identity for web applications.
 
-Additional Omeka S themes can be found at https://github.com/omeka-s-themes.
+Additional Omeka S themes can be found at [omeka-s-themes](https://github.com/omeka-s-themes).
 
 ## Using this theme
 
@@ -19,7 +19,7 @@ This is automatically deployed to stage and prod via GitHub Actions. See [ADR#00
 * A merge to `main` triggers a deploy of the theme to the stage server
 * A tagged release on `main` triggers a deploy of the theme to the prod server
 
-Only changes in the four key directories are tracked for automation: `asset/`, `config/`, `helper/`, and `view/`.
+Only changes in the four key directories are tracked for automation: `asset/`, `config/`, `helper/`, and `view/`. If there are updates to the theme that require files outside of the four directories listed above, the `deploy` command in the Makefile will need to be udpated.
 
 ### Stylesheets
 
