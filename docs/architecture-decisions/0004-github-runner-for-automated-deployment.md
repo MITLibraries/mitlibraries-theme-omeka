@@ -1,4 +1,4 @@
-# 4. Inherit style library materials with makefile
+# 4. USe Github Runner for automated deployment
 
 Date: 2023-10-13
 

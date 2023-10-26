@@ -1,12 +1,11 @@
-name: deploy-to-prod
+name: manual-deploy-to-stage
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 jobs:
   deploy-theme:
     name: deploy-theme
-    runs-on: [self-hosted, linux, prod]
+    runs-on: [self-hosted, linux, stage]
     steps:
       - uses: actions/checkout@v4
       - name: deploy-theme
