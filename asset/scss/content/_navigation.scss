@@ -1,0 +1,13 @@
+ul.navigation {
+    li {
+        list-style-type: none;
+
+        &.active {
+            list-style-type: "\2794";
+
+            >a {
+                font-weight: bold;
+            }
+        }
+    }
+}

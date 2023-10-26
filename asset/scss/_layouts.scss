@@ -1,0 +1,19 @@
+// ----------------------------
+// #CONTENT
+// ----------------------------
+
+// One quarter column hanging off left edge
+.layout-1q4q {
+    @media (min-width: $bp-screen-md) {
+        .col4q {
+            float: right;
+            width: 100%;
+        }
+
+        .col1q-l {
+            float: left;
+            width: 22%;
+            margin-left: -25%;
+        }
+    }
+}

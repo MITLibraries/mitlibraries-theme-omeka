@@ -2,6 +2,14 @@
 $translate = $this->plugin('translate');
 $analytics_property = $this->themeSetting('analytics_property');
 
+$nav_style = $this->themeSetting('nav_style');
+$wrap_classes = 'wrap-content';
+$content_classes = 'content-main';
+if ('vertical' == $nav_style) {
+    $wrap_classes .= ' layout-1q3q';
+    $content_classes .= ' col3q';
+}
+
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
 $this->headLink()->prependStylesheet('//fonts.googleapis.com/css?family=Source+Code+Pro|Lato:400,400italic,700,700italic');
@@ -29,14 +37,15 @@ $userBar = $this->userBar();
         <?php echo $userBar; ?>
         <div class="wrap-page">
             <?php echo $this->partial('common/header-site-slim'); ?>
-            <div class="wrap-outer-header-local layout-band">
-                <div class="wrap-header-local">
-                    <?php echo $this->partial('common/navigation'); ?>
-                </div>
-            </div>
+            <?php if ('default' == $nav_style) { ?>
+                <?php echo $this->partial('common/navigation-default'); ?>
+            <?php } ?>
             <div class="wrap-outer-content layout-band">
-                <div class="wrap-content">
-                    <div id="content-main" class="content-main" role="main">
+                <div class="<?php echo $wrap_classes; ?>">
+                    <?php if ('vertical' == $nav_style) { ?>
+                        <?php echo $this->partial('common/navigation-vertical'); ?>
+                    <?php } ?>
+                    <div id="content-main" class="<?php echo $content_classes; ?>" role="main">
                         <?php echo $this->messages(); ?>
                         <?php echo $this->content; ?>
                     </div>
