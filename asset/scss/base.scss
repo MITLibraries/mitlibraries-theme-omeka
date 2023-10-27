@@ -6,6 +6,11 @@
 // ----------------------------
 // Style library overrides
 // ----------------------------
+// Undo CSS transitions in the navigation menu
+ul.navigation a {
+    transition: none;
+}
+
 // * We need to correct the path to the network graphic in the header and footer.
 .wrap-header {
     background-image: url( $network );
