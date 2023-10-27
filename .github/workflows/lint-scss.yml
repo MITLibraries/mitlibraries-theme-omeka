@@ -18,4 +18,4 @@ jobs:
 
     - run: npm list
 
-    - run: npx stylelint "**/*.scss"
+    - run: npx stylelint "asset/scss/**/*.scss"
