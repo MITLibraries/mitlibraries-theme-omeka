@@ -28,5 +28,8 @@
   },
   "browserslist": [
     "last 2 versions"
-  ]
+  ],
+  "dependencies": {
+    "smartmenus": "^1.2.1"
+  }
 }
