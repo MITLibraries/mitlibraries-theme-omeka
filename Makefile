@@ -25,3 +25,10 @@ update: fetch ## Synchronize latest (auto runs clean and fetch first)
 	cp tmp/mitlib-style-master/_assets/i/favicon.ico         asset/img/mitlib-style/favicon.ico
 	cp tmp/mitlib-style-master/_assets/i/mitlib-wordmark.svg asset/img/mitlib-style/mitlib-wordmark.svg
 	cp tmp/mitlib-style-master/_assets/i/vi-shape7-tp.svg    asset/img/mitlib-style/vi-shape7-tp.svg
+
+deploy: ## Deploys the theme on a host server
+	rsync -a --delete asset/css/ /var/www/html/themes/mitlibraries-theme-omeka/asset/css/
+	rsync -a --delete asset/img/ /var/www/html/themes/mitlibraries-theme-omeka/asset/img/
+	rsync -a --delete config/ /var/www/html/themes/mitlibraries-theme-omeka/config/
+	rsync -a --delete helper/ /var/www/html/themes/mitlibraries-theme-omeka/helper/
+	rsync -a --delete view/ /var/www/html/themes/mitlibraries-theme-omeka/view/

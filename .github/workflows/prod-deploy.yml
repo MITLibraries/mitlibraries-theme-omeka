@@ -1,0 +1,15 @@
+name: deploy-to-prod
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy-theme:
+    name: deploy-theme
+    runs-on: [self-hosted, linux, prod]
+    steps:
+      - uses: actions/checkout@v4
+      - name: deploy-theme
+        run: |
+          make deploy
+          echo "Deployed theme version $(grep 'version =' config/theme.ini | awk '{print $3}')" >> $GITHUB_STEP_SUMMARY
