@@ -27,6 +27,7 @@ update: fetch ## Synchronize latest (auto runs clean and fetch first)
 	cp tmp/mitlib-style-master/_assets/i/vi-shape7-tp.svg    asset/img/mitlib-style/vi-shape7-tp.svg
 
 deploy: ## Deploys the theme on a host server
+	rsync asset /var/www/html/themes/mitlibraries-theme-omeka/asset/
 	rsync --recursive --delete asset/css/ /var/www/html/themes/mitlibraries-theme-omeka/asset/css/
 	rsync --recursive --delete asset/img/ /var/www/html/themes/mitlibraries-theme-omeka/asset/img/
 	rsync --recursive --delete config/ /var/www/html/themes/mitlibraries-theme-omeka/config/
