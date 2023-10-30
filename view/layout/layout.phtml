@@ -1,6 +1,8 @@
 <?php
 $translate = $this->plugin('translate');
 $analytics_property = $this->themeSetting('analytics_property');
+$banner_url = $this->themeSettingAssetUrl('banner');
+$banner_text = $this->themeSetting('banner_text');
 
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
@@ -23,12 +25,34 @@ $userBar = $this->userBar();
         <?php echo $this->headStyle(); ?>
         <?php echo $this->headScript(); ?>
         <link rel="icon" type="image/x-icon" href="<?php echo $this->assetUrl('/img/mitlib-style/favicon.ico'); ?>">
+        <?php if ($banner_url) { ?>
+            <style>
+                .wrap-outer-header-local {
+                    background-image: url(<?php echo $banner_url; ?>);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    height: 200px;
+                }
+            </style>
+        <?php } ?>
     </head>
     <?php echo $this->htmlElement('body')->appendAttribute('class', ''); ?>
         <a id="skip" class="skip sr sr-focusable" href="#content">Skip to main content</a>
         <?php echo $userBar; ?>
         <div class="wrap-page">
             <?php echo $this->partial('common/header-site-slim'); ?>
+            <div class="wrap-outer-header-local layout-band">
+                <div class="wrap-header-local">
+                    <div class="page-header-home">
+                        <a href="<?php echo $site->siteUrl(); ?>">
+                            <p class="hd-1"><?php echo $this->escapeHtml($site->title()); ?></p>
+                            <?php if ($banner_text) { ?>
+                                <p class="child-tagline"><?php echo $this->escapeHtml($banner_text); ?></p>
+                            <?php } ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="wrap-outer-content layout-band">
                 <div class="wrap-content">
                     <div id="content-main" class="content-main" role="main">
