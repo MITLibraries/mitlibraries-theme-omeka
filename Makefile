@@ -28,6 +28,7 @@ update: fetch ## Synchronize latest (auto runs clean and fetch first)
 
 deploy: ## Deploys the theme on a host server
 	rsync asset /var/www/html/themes/mitlibraries-theme-omeka/asset/
+	rsync theme.jpg /var/www/html/themes/mitlibraries-theme-omeka/
 	rsync --recursive --delete asset/css/ /var/www/html/themes/mitlibraries-theme-omeka/asset/css/
 	rsync --recursive --delete asset/img/ /var/www/html/themes/mitlibraries-theme-omeka/asset/img/
 	rsync --recursive --delete config/ /var/www/html/themes/mitlibraries-theme-omeka/config/

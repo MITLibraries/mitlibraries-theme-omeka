@@ -1,0 +1,36 @@
+.wrap-outer-header-local {
+    border-bottom: none;
+
+    .page-banner {
+        background-color: $gray-l4;
+        color: $white;
+        min-height: 10rem;
+    }
+
+    .wrap-header-local {
+        background: $gray;
+        box-shadow: 0 0 5px $shadow;
+        color: $white;
+        margin-top: -6em;
+        padding: 0;
+
+        .page-header-home {
+            padding: 1rem;
+            padding-bottom: 0;
+
+            a {
+                color: $white;
+            }
+        }
+
+        .page-menu {
+            background: $gray-l2;
+            color: $black;
+            padding: 1rem;
+        }
+
+        p.child-tagline {
+            font-size: 1.6rem;
+        }
+    }
+}
