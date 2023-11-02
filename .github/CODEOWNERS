@@ -4,7 +4,7 @@
 # These owners will be the default owners for everything in the repo. Unless a
 # later match takes precedence, @global-owner1 and @global-owner2 will be
 # requested for review when someone opens a pull request.
-*       @matt-bernhardt @mitlibraries/engx
+# *       @matt-bernhardt @mitlibraries/engx
 
 # Order is important! The last matching pattern takes the most precedence.
 
@@ -12,5 +12,5 @@
 # Teams can be specified as code owners as well. Teams should # be identified
 # in the format @org/team-name. Teams must have explicit write access to the
 # repository.
-/.github/workflows/ @mitlibraries/engx @mitlibraries/infraeng
-Makefile @mitlibraries/engx @mitlibraries/infraeng
+# /.github/workflows/ @mitlibraries/engx @mitlibraries/infraeng
+# Makefile @mitlibraries/engx @mitlibraries/infraeng
