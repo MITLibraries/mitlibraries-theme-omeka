@@ -1,0 +1,39 @@
+.wrap-footer {
+    background-image: url( $network );
+
+    &.footer-slim {
+        padding-bottom: 2rem;
+    }
+
+    .wrap-logo-lib {
+        height: 6rem;
+    }
+
+    .wrap-middle {
+        justify-content: flex-end;
+    }
+}
+
+.wrap-footer-institute {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .footer-info-institute {
+        align-items: start;
+
+        .link-logo-mit {
+            margin-right: 5rem;
+            min-width: 15rem;
+
+            img {
+                height: 3.5rem;
+            }
+        }
+
+        .license {
+            font-size: 1.2rem;
+            margin-top: inherit;
+            max-width: 40rem;
+        }
+    }
+}
