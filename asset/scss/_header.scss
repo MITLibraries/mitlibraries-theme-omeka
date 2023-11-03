@@ -1,0 +1,60 @@
+.wrap-header {
+    background-image: url( $network );
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    header {
+        .wrap-header-core {
+            width: 85%;
+        }
+
+        .wrap-header-supp {
+            width: 13%;
+        }
+
+        .logo-mit-lib {
+            border-right: 1px solid $white;
+            margin-right: 2rem;
+            padding-right: 2rem;
+        }
+
+        .platform-name {
+            color: #fff;
+            font-size: 2.8rem;
+            text-decoration: none;
+            vertical-align: middle;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
+
+        .link-logo-mit {
+            img {
+                height: 3.5rem;
+            }
+        }
+    }
+}
+
+@media (width <= 600px) {
+    .wrap-header {
+        header {
+            .logo-mit-lib {
+                border-right: none;
+                margin-right: inherit;
+                padding-right: inherit;
+            }
+
+            .platform-name {
+                display: block;
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    .wrap-header-supp {
+        vertical-align: top;
+    }
+}
