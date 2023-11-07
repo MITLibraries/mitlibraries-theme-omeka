@@ -1,0 +1,14 @@
+<?php
+$hyperlink = $this->plugin('hyperlink');
+$translate = $this->plugin('translate');
+$prevText = $translate('Prev. page');
+$prevIcon = '<i class="fa fa-arrow-left"></i>';
+$nextText = $translate('Next page');
+$nextIcon = '<i class="fa fa-arrow-right"></i>';
+?>
+<?php if ($prevPage || $nextPage) : ?>
+<div class="site-page-pagination">
+    <?php echo $prevPage ? $hyperlink->raw($prevIcon.' '.$prevText, $prevPage->siteUrl(), ['class' => 'btn button-primary prev']) : ''; ?>
+    <?php echo $nextPage ? $hyperlink->raw($nextText.' '.$nextIcon, $nextPage->siteUrl(), ['class' => 'btn button-primary next']) : ''; ?>
+</div>
+<?php endif; ?>
