@@ -4,3 +4,8 @@
 @import 'header';
 @import 'footer';
 @import 'content/all';
+
+// We remove Open Sans from the font stack to prevent sending traffic to Google Fonts.
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
