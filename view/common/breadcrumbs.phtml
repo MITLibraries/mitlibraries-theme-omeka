@@ -1,0 +1,13 @@
+<ol class="list-inline">
+    <?php foreach ($this->pages as $page) : ?>
+        <?php if (! $page->isActive()) : ?>
+            <li>
+                <a href="<?php echo $page->getHref() ?>"><?php echo $page->getLabel() ?></a> 
+            </li>
+        <?php else : ?>
+            <li class="active" aria-current="page">
+                <?php echo $page->getLabel() ?>
+            </li>
+        <?php endif ?>
+    <?php endforeach ?>
+</ol>

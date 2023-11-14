@@ -1,0 +1,15 @@
+nav.breadcrumbs {
+    margin-bottom: 1rem;
+
+    ol {
+        li {
+            &::after {
+                content: ' > ';
+            }
+
+            &:last-child::after {
+                content: none;
+            }
+        }
+    }
+}
