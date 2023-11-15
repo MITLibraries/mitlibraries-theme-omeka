@@ -4,14 +4,28 @@ $analytics_property = $this->themeSetting('analytics_property');
 $banner_url = $this->themeSettingAssetUrl('banner');
 $banner_text = $this->themeSetting('banner_text');
 
+$nav_style = $this->themeSetting('nav_style');
+$body_classes = 'nav-horizontal';
+$content_classes = 'content-main';
+$wrap_classes = 'wrap-content';
+if ('vertical' == $nav_style) {
+    $body_classes = 'nav-vertical';
+    $content_classes .= ' col3q';
+    $wrap_classes .= ' layout-1q3q';
+}
+
 $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
 $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
 $this->headLink()->appendStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
+$this->headLink()->appendStylesheet($this->assetUrl('js/smartmenus/dist/css/sm-core-css.css'));
+$this->headLink()->appendStylesheet($this->assetUrl('js/smartmenus/dist/css/sm-mint/sm-mint.css'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/libraries-main.min.css'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/base.css'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/global.js', 'Omeka'));
+$this->headScript()->appendFile($this->assetUrl('js/smartmenus/dist/jquery.smartmenus.min.js'));
+$this->headScript()->appendFile($this->assetUrl('js/tesseract.js'));
 $this->trigger('view.layout');
 $userBar = $this->userBar();
 ?>
@@ -35,7 +49,7 @@ $userBar = $this->userBar();
             </style>
         <?php } ?>
     </head>
-    <?php echo $this->htmlElement('body')->appendAttribute('class', ''); ?>
+    <?php echo $this->htmlElement('body')->appendAttribute('class', $body_classes); ?>
         <a id="skip" class="skip sr sr-focusable" href="#content-main">Skip to main content</a>
         <?php echo $userBar; ?>
         <div class="wrap-page">
@@ -54,15 +68,20 @@ $userBar = $this->userBar();
                                 <?php } ?>
                             </a>
                         </div>
-                        <div class="page-menu">
-                            This would be the menu.
-                        </div>
+                        <?php if ('default' == $nav_style) { ?>
+                            <div class="page-menu">
+                                <?php echo $this->partial('common/navigation-default'); ?>
+                            </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
             <div class="wrap-outer-content layout-band">
-                <div class="wrap-content">
-                    <div id="content-main" class="content-main" role="main">
+                <div class="<?php echo $wrap_classes; ?>">
+                    <?php if ('vertical' == $nav_style) { ?>
+                        <?php echo $this->partial('common/navigation-vertical'); ?>
+                    <?php } ?>
+                    <div id="content-main" class="<?php echo $content_classes; ?>" role="main">
                         <?php echo $this->messages(); ?>
                         <?php echo $this->content; ?>
                     </div>

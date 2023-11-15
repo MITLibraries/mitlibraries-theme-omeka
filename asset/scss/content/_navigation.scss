@@ -1,0 +1,15 @@
+ul.navigation {
+    li {
+        margin-bottom: inherit;
+
+        a {
+            transition: none;
+        }
+
+        &.active {
+            >a {
+                font-weight: bold;
+            }
+        }
+    }
+}
