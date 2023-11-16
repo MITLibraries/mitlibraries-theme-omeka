@@ -12,5 +12,5 @@
 # Teams can be specified as code owners as well. Teams should # be identified
 # in the format @org/team-name. Teams must have explicit write access to the
 # repository.
-# /.github/workflows/ @mitlibraries/engx @mitlibraries/infraeng
-# Makefile @mitlibraries/engx @mitlibraries/infraeng
+/.github/ @mitlibraries/engx @mitlibraries/infraeng
+Makefile @mitlibraries/engx @mitlibraries/infraeng
