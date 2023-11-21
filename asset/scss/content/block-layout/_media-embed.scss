@@ -1,0 +1,45 @@
+body.page {
+    .blocks>.file {
+        border: none;
+        padding: 1rem;
+
+        .item.resource {
+            img {
+                margin: unset;
+            }
+
+            &:first-of-type {
+                padding: inherit;
+                margin: inherit;
+            }
+        }
+
+        &.medium {
+            .item.resource {
+                max-width: 20rem;
+            }
+        }
+
+        &.square {
+            .item.resource {
+                max-width: 20rem;
+            }
+        }
+
+        &.large {
+            max-width: 48%;
+        }
+
+        &.large.center {
+            margin: 0 auto;
+        }
+
+        &.right {
+            padding-right: 0;
+        }
+
+        &.left {
+            padding-left: 0;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.item-showcase {
+    border: none;
+    padding: 1rem;
+
+    // Omeka has a bizarre overly-specific rule specifying the maximum height of images in a showcase that ends up overriding the size selection feature. This unsets it.
+    .resource.item:not(:only-child) img {
+        max-height: inherit;
+    }
+
+    &.large {
+        .item.resource {
+            width: 31%;
+            margin-left: 1%;
+            margin-right: 1%;
+            padding: 0;
+        }
+    }
+
+    &.medium {
+        .item.resource {
+            width: 20rem;
+            padding: 0;
+        }
+    }
+
+    &.square {
+        .item.resource {
+            width: 20rem;
+            padding: 0;
+        }
+    }
+}

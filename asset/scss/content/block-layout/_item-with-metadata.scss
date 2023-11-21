@@ -1,0 +1,44 @@
+.item-with-metadata {
+    float: right;
+    margin-top: 0;
+    padding: 1rem;
+    width: 48%;
+
+    .show.resource {
+        container-type: inline-size;
+        margin: 0;
+        padding: 1rem;
+        text-align: left;
+
+        dl {
+            .property {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 1rem;
+                margin-bottom: 1rem;
+
+                dt {
+                    grid-column: 1;
+                }
+
+                dd {
+                    grid-column: 2;
+                }
+            }
+        }
+
+    }
+}
+
+@container (width < 500px) {
+    .show.resource {
+        background: #fcc;
+    }
+}
+
+@media (width <= 600px) {
+    .item-with-metadata {
+        float: none;
+        width: 100%;
+    }
+}

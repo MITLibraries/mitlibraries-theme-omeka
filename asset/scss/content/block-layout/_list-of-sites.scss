@@ -1,0 +1,18 @@
+.list-of-sites {
+    .site-list {
+        .site {
+            display: flow-root;
+            margin-bottom: 2rem;
+
+            .site-link {
+                font-size: 2.6rem;
+                text-decoration: none;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
