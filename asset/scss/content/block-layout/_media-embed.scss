@@ -1,0 +1,51 @@
+body.page {
+    .blocks>.file {
+        background: $gray-l3;
+        border: none;
+        padding: 1rem;
+
+        .item.resource {
+            padding-top: 0;
+            margin-bottom: 3rem;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            .media-render {
+                border: none;
+                margin-top: 0;
+
+                img {
+                    margin-bottom: 0;
+                }
+            }
+
+            .caption {
+                font-size: inherit;
+                line-height: inherit;
+            }
+        }
+
+        &.medium.right,
+        &.medium.left,
+        &.medium.center {
+            .item.resource {
+                max-width: 20rem;
+            }
+        }
+
+        &.square.right,
+        &.square.left,
+        &.square.center {
+            .item.resource {
+                max-width: 20rem;
+            }
+        }
+
+        &.large.right,
+        &.large.left {
+            max-width: 50%;
+        }
+    }
+}
