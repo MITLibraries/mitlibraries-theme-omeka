@@ -2,6 +2,12 @@
 // #CONTENT
 // ----------------------------
 
+// Remove padding-top from wrap-content everywhere.
+.wrap-content {
+    padding-top: inherit;
+}
+
+// Use of the vertical navigation should expand the content column to make room.
 .nav-vertical {
     .wrap-breadcrumb,
     .wrap-content,
@@ -12,5 +18,21 @@
     .wrap-header-local,
     .wrap-notice {
         max-width: 152rem;
+    }
+
+    #navbar-container {
+        margin-bottom: 2rem;
+    }
+}
+
+// Add a new UI layer that isn't in the style library: wrap-outer-search.
+.wrap-outer-search {
+    background-color: $white;
+    color: $black;
+
+    .wrap-content {
+        #search-form {
+            margin: 0;
+        }
     }
 }

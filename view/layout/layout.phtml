@@ -76,6 +76,13 @@ $userBar = $this->userBar();
                     </div>
                 </div>
             </div>
+            <div class="wrap-outer-search layout-band">
+                <div class="wrap-content">
+                    <div class="search">
+                        <?php echo $this->partial('common/search-form'); ?>
+                    </div>
+                </div>
+            </div>
             <div class="wrap-outer-content layout-band">
                 <div class="<?php echo $wrap_classes; ?>">
                     <?php if ('vertical' == $nav_style) { ?>

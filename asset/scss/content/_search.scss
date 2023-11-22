@@ -1,0 +1,31 @@
+.search {
+    display: flow-root;
+
+    #search-form {
+        float: right;
+
+        &.form-horizontal {
+            .field-text {
+                width: 75%;
+            }
+
+            .form-action {
+                width: 20%;
+            }
+        }
+    }
+}
+
+@media (width <= 600px) {
+    .search {
+        #search-form {
+            float: inherit;
+
+            &.form-horizontal {
+                .field-text {
+                    min-width: inherit;
+                }
+            }
+        }
+    }
+}
