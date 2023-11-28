@@ -3,13 +3,8 @@
     padding: 1rem;
 
     .item.resource {
-        background: $gray-l3;
         padding: 1rem;
         margin-bottom: 3rem;
-
-        &:last-of-type {
-            margin-bottom: 0;
-        }
 
         h3 {
             font-size: inherit;
@@ -48,7 +43,8 @@
 
     &.large {
         .item.resource {
-            max-width: 49%;
+            max-width: 48%;
+            margin-left: 1%;
             margin-right: 1%;
         }
     }

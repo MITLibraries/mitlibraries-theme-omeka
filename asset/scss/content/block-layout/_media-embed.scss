@@ -1,15 +1,16 @@
 body.page {
     .blocks>.file {
-        background: $gray-l3;
         border: none;
         padding: 1rem;
 
         .item.resource {
-            padding-top: 0;
-            margin-bottom: 3rem;
 
             &:last-of-type {
                 margin-bottom: 0;
+            }
+
+            h3 {
+                padding-bottom: 1rem;
             }
 
             .media-render {
@@ -21,10 +22,6 @@ body.page {
                 }
             }
 
-            .caption {
-                font-size: inherit;
-                line-height: inherit;
-            }
         }
 
         &.medium.right,

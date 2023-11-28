@@ -1,0 +1,32 @@
+.resource {
+    border: 1px solid $gray-l3;
+    box-shadow: 0 0 5px $gray-l3;
+    margin: 1rem;
+    padding: 1rem;
+
+    a {
+        padding-bottom: 1rem;
+    }
+
+    h3 {
+        padding-bottom: 1rem;
+    }
+
+    .caption {
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    h3 + .caption {
+        border-top: 1px solid $gray-l3;
+        padding-top: 1rem;
+    }
+
+    // There is a very-specific rule coming from Omeka core that we need to override.
+    &.item {
+        .caption {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+}
