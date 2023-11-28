@@ -26,6 +26,7 @@ $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 
 $this->headScript()->appendFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/smartmenus/dist/jquery.smartmenus.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/tesseract.js'));
+$this->headScript()->appendFile($this->assetUrl('js/matomo.js'));
 $this->trigger('view.layout');
 $userBar = $this->userBar();
 ?>
