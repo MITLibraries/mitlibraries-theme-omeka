@@ -67,19 +67,19 @@ $resourcePropertiesSelect->setValueOptions($valueOptions);
         $objectResource->displayTitle()
     );
     ?>
-<table>
-    <caption class="linked-resource-property"><?php echo $this->escapeHtml($caption); ?></caption>
+<table class="table table-simplified table-responsive">
+    <caption class="hd-4 linked-resource-property"><?php echo $this->escapeHtml($caption); ?></caption>
     <thead>
         <tr>
-            <th><?php echo $this->translate('Title'); ?></th>
-            <th><?php echo $this->translate('Class'); ?></th>
+            <th scope="col" class="supplemental"><?php echo $this->translate('Title'); ?></th>
+            <th scope="col" class="supplemental"><?php echo $this->translate('Class'); ?></th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($values as $value) : ?>
         <tr class="linked-resource">
             <td><?php echo $value['val']->resource()->linkPretty('square', null, null, null, $valueLang); ?></td>
-            <td>
+            <td class="supplemental">
                 <?php if ($value['val']->resource()->resourceClass()) : ?>
                 <span class="resource-class"><?php echo $this->escapeHtml($this->translate($value['val']->resource()->resourceClass()->label())); ?></span>
                 <?php endif; ?>
