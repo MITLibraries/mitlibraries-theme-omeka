@@ -1,6 +1,5 @@
 <?php
 $translate = $this->plugin('translate');
-$analytics_property = $this->themeSetting('analytics_property');
 $banner_url = $this->themeSettingAssetUrl('banner');
 $banner_text = $this->themeSetting('banner_text');
 
@@ -98,7 +97,7 @@ $userBar = $this->userBar();
             <?php echo $this->partial('common/footer-site-slim'); ?>
         </div>
         <footer>
-            <?php echo $this->FooterHelper($analytics_property); ?>
+            <?php echo $this->FooterHelper(''); ?>
             <span class="powered-by"><?php echo $translate('Powered by Omeka S'); ?></span>
         </footer>
     </body>
