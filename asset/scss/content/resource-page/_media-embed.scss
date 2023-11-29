@@ -1,0 +1,12 @@
+.media-embeds {
+    .media-render {
+        margin: 1rem 0 3rem;
+
+        img {
+            border: 1px solid $gray-l3;
+            box-shadow: 0 0 5px $gray-l3;
+            margin: 0;
+            padding: 1rem;
+        }
+    }
+}
