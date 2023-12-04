@@ -1,20 +1,25 @@
-.resource {
+body .resource {
     border: 1px solid $gray-l3;
     box-shadow: 0 0 5px $gray-l3;
     margin: 1rem;
-    padding: 1rem;
+    padding: 0;
+    text-align: center;
 
     a {
-        padding-bottom: 1rem;
+        display: block;
     }
 
     h3 {
         padding-bottom: 1rem;
     }
 
+    img {
+        margin: 0;
+        padding: 1rem;
+    }
+
     .caption {
-        font-size: inherit;
-        line-height: inherit;
+        padding: 0 1rem 1rem;
     }
 
     h3 + .caption {
@@ -22,11 +27,16 @@
         padding-top: 1rem;
     }
 
+    .file {
+        border: none;
+        margin: 0;
+    }
+
     // There is a very-specific rule coming from Omeka core that we need to override.
     &.item {
         .caption {
-            font-size: inherit;
-            line-height: inherit;
+            font-size: 1.5rem;
+            line-height: 1.3;
         }
     }
 }

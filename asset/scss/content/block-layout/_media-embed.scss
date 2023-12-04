@@ -4,45 +4,42 @@ body.page {
         padding: 1rem;
 
         .item.resource {
-
-            &:last-of-type {
-                margin-bottom: 0;
+            img {
+                margin: unset;
             }
 
-            h3 {
-                padding-bottom: 1rem;
+            &:first-of-type {
+                padding: inherit;
+                margin: inherit;
             }
-
-            .media-render {
-                border: none;
-                margin-top: 0;
-
-                img {
-                    margin-bottom: 0;
-                }
-            }
-
         }
 
-        &.medium.right,
-        &.medium.left,
-        &.medium.center {
+        &.medium {
             .item.resource {
                 max-width: 20rem;
             }
         }
 
-        &.square.right,
-        &.square.left,
-        &.square.center {
+        &.square {
             .item.resource {
                 max-width: 20rem;
             }
         }
 
-        &.large.right,
-        &.large.left {
-            max-width: 50%;
+        &.large {
+            max-width: 48%;
+        }
+
+        &.large.center {
+            margin: 0 auto;
+        }
+
+        &.right {
+            padding-right: 0;
+        }
+
+        &.left {
+            padding-left: 0;
         }
     }
 }
