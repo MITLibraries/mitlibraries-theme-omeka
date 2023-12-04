@@ -1,12 +1,11 @@
 body .resource {
-    border: 1px solid $gray-l3;
-    box-shadow: 0 0 5px $gray-l3;
     margin: 1rem;
     padding: 0;
     text-align: center;
 
     a {
         display: block;
+        margin-bottom: 1rem;
     }
 
     h3 {
@@ -14,6 +13,8 @@ body .resource {
     }
 
     img {
+        border: 1px solid $gray-l3;
+        box-shadow: 0 0 5px $gray-l3;
         margin: 0;
         padding: 1rem;
     }
