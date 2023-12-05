@@ -10,14 +10,14 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 
 $query = $this->params()->fromQuery();
 $itemSetShow = isset($itemSet);
-if ($itemSetShow):
+if ($itemSetShow) :
     $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
     $this->htmlElement('body')->appendAttribute('class', 'item-set');
     $query['item_set_id'] = $itemSet->id();
 endif;
 ?>
 
-<?php if ($itemSetShow): ?>
+<?php if ($itemSetShow) : ?>
     <?php echo $this->pageTitle($itemSet->displayTitle(null, $valueLang), 2); ?>
     <h3><?php echo $translate('Item set'); ?></h3>
     <div class="metadata">
@@ -25,7 +25,7 @@ endif;
     </div>
     <div class="item-set-items">
     <?php echo '<h3>' . $escape($translate('Items')) . '</h3>'; ?>
-<?php else: ?>
+<?php else : ?>
     <?php echo $this->pageTitle($translate('Items'), 2); ?>
 <?php endif; ?>
 
@@ -42,18 +42,20 @@ endif;
 <?php
 $headingTerm = $this->siteSetting('browse_heading_property_term');
 $bodyTerm = $this->siteSetting('browse_body_property_term');
-foreach ($items as $item):
+foreach ($items as $item) :
     $heading = $headingTerm ? $item->value($headingTerm, ['default' => $translate('[Untitled]'), 'lang' => $valueLang]) : $item->displayTitle(null, $valueLang);
     $body = $bodyTerm ? $item->value($bodyTerm, ['lang' => $valueLang]) : $item->displayDescription(null, $valueLang);
-?>
+    ?>
     <li class="item resource">
         <?php
-        $linkContent = sprintf('%s<span class="resource-name">%s</span>',
+        $linkContent = sprintf(
+            '%s<span class="resource-name">%s</span>',
             $thumbnail($item, 'medium'),
-            $escape($heading));
+            $escape($heading)
+        );
         echo $item->linkRaw($linkContent, null, ['class' => 'resource-link']);
         ?>
-        <?php if ($body): ?>
+        <?php if ($body) : ?>
         <div class="description"><?php echo $escape($body); ?></div>
         <?php endif; ?>
     </li>
