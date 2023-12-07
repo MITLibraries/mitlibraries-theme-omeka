@@ -16,7 +16,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 <?php else : ?>
     <?php
     $resourceLabels = [
-        'site_pages' => 'Site pages', // @translate
+        'site_pages' => 'Pages', // @translate
         'items' => 'Items', // @translate
         'item_sets' => 'Item sets', // @translate
         'media' => 'Media', // @translate
@@ -43,20 +43,28 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
                 }
                 ?>
             <?php else : ?>
-                <?php echo $resource->linkPretty('square', null, null, null, $valueLang); ?>
+                <?php echo $resource->linkPretty('medium', null, null, null, $valueLang); ?>
             <?php endif; ?>
         </li>
         <?php endforeach; ?>
     </ul>
-        <?php echo $hyperlink(
-            sprintf($translate('View all results (%s total)'), $result['total']),
-            $url(
-                'site/resource',
-                ['controller' => $resourceControllers[$resourceName], 'action' => 'browse'],
-                ['query' => ['fulltext_search' => $query]],
-                true
-            )
-        ); ?>
+        <?php if ($result['total'] > 10) : ?>
+            <?php echo $hyperlink(
+                sprintf($translate('View all %s (%s total)'), strtolower($resourceLabels[$resourceName]), $result['total']),
+                $url(
+                    'site/resource',
+                    ['controller' => $resourceControllers[$resourceName], 'action' => 'browse'],
+                    ['query' => ['fulltext_search' => $query]],
+                    true
+                )
+            ); ?>
+        <?php else : ?>
+            <?php echo sprintf(
+                '<p>Showing all relevant %s (%s total)</p>',
+                strtolower($resourceLabels[$resourceName]),
+                $result['total']
+            ); ?>
+        <?php endif; ?>
 </div>
     <?php endforeach; ?>
 <?php endif; ?>
