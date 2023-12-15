@@ -1,0 +1,49 @@
+div.results {
+    margin-bottom: 2rem;
+
+    >ul {
+        border-bottom: 1px solid $gray-l3;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            border-top: 1px solid $gray-l3;
+            margin: 0;
+            padding: 0;
+
+            a {
+                display: flow-root;
+                padding: 1rem;
+                text-decoration: none;
+
+                img {
+                    border: 1px solid $gray-l3;
+                    box-shadow: 0 0 5px $gray-l3;
+                    float: right;
+                    margin: 0 0 0 1rem;
+                    max-width: 10rem;
+                    max-height: 20rem;
+                    padding: 0.5rem;
+                }
+
+                .resource-name {
+                    font-size: 1.9rem;
+                }
+            }
+        }
+    }
+
+    &.items li a {
+        min-height: 12rem;
+    }
+
+    >ul li a:focus,
+    >ul li a:hover {
+        background: $gray-l4;
+        text-decoration: underline;
+
+        img {
+            background: $white;
+        }
+    }
+}

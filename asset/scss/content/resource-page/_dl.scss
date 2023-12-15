@@ -1,0 +1,23 @@
+.values-container dl,
+dl.resource-class,
+dl.item-sets,
+dl.site-pages {
+    .property {
+        align-items: start;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        dt {
+            grid-column: 1;
+        }
+
+        dd {
+            align-self: end;
+            grid-column: 2;
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+    }
+}
