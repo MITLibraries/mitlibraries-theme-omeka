@@ -24,6 +24,9 @@ $this->headLink()->appendStylesheet($this->assetUrl('css/libraries-main.min.css'
 $this->headLink()->appendStylesheet($this->assetUrl('css/base.css'));
 if (isset($stylesheet)) {
     $this->headLink()->appendStylesheet($this->assetUrl("css/$stylesheet.css"));
+} else {
+    // If the site has not chosen a stylesheet, use the Black variant by default.
+    $this->headLink()->appendStylesheet($this->assetUrl("css/black.css"));
 }
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/global.js', 'Omeka'));
