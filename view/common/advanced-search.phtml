@@ -13,7 +13,7 @@ $this->headLink()->prependStylesheet($this->assetUrl('css/advanced-search.css', 
 $this->headScript()->appendFile($this->assetUrl('js/advanced-search.js', 'Omeka'));
 
 $partials = [];
-$addPartial = function($partial) use (&$partials, $partialExcludelist) {
+$addPartial = function ($partial) use (&$partials, $partialExcludelist) {
     if (!in_array($partial, $partialExcludelist)) {
         // Add the partial if it is not in the exclude list.
         $partials[] = $partial;
