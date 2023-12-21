@@ -23,26 +23,10 @@ $addPartial = function ($partial) use (&$partials, $partialExcludelist) {
 $addPartial('common/advanced-search/fulltext');
 $addPartial('common/advanced-search/properties');
 $addPartial('common/advanced-search/resource-class');
-if ($this->status()->isAdminRequest()) {
-    $addPartial('common/advanced-search/resource-template');
-}
 switch ($resourceType) {
     case 'item':
-        $addPartial('common/advanced-search/item-sets');
-        if ($this->status()->isAdminRequest()) {
-            $addPartial('common/advanced-search/site');
-        }
         $addPartial('common/advanced-search/has-media');
         break;
-    case 'media':
-        $addPartial('common/advanced-search/media-type');
-        break;
-    case 'itemSet':
-        break;
-}
-if ($this->status()->isAdminRequest()) {
-    $addPartial('common/advanced-search/owner');
-    $addPartial('common/advanced-search/visibility');
 }
 if ($this->status()->isSiteRequest()) {
     $addPartial('common/advanced-search/resource-template-restrict');
