@@ -1,0 +1,54 @@
+a {
+    &:focus,
+    &:hover {
+        color: $color-text-hover;
+    }
+}
+
+.blocks>h2:first-of-type,
+.content-main>h2:first-of-type {
+    display: block;
+    border-bottom: 1px solid $gray-l2;
+    padding-bottom: 1rem;
+    position: relative;
+    width: 100%;
+
+    &::after {
+        display: block;
+        content: "";
+        background-color: $color;
+        bottom: -1px;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        width: 64px;
+    }
+}
+
+.break.opaque {
+    border-color: $gray-l2;
+    position: relative;
+
+    &::after {
+        display: block;
+        content: "";
+        background-color: $color;
+        bottom: -1px;
+        height: 3px;
+        left: 0;
+        position: absolute;
+        width: 48px;
+    }
+}
+
+.button-primary:focus,
+.button-primary:hover {
+    background-color: $color;
+    border-color: $color;
+}
+
+.button-secondary:focus,
+.button-secondary:hover {
+    background-color: $color;
+    border-color: $color;
+}

@@ -1,0 +1,12 @@
+@import 'colors';
+@import 'variables';
+
+$color: $orange;
+$color-menu-accent: $orange;
+$color-menu-accent-arrow: $white;
+$color-menu-accent-text: $white;
+$color-menu-arrow: $orange;
+$color-menu-background: $gray-l3;
+$color-text-hover: $orange;
+
+@import 'variants/all';

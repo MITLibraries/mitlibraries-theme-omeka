@@ -1,9 +1,18 @@
-ul.navigation {
+ul.navigation.sm-mint {
     li {
         margin-bottom: inherit;
 
         a {
+            border-radius: unset;
             transition: none;
+
+            &.highlighted {
+                color: $white;
+            }
+        }
+
+        ul {
+            border-radius: unset;
         }
 
         &.active {
@@ -11,5 +20,9 @@ ul.navigation {
                 font-weight: bold;
             }
         }
+    }
+
+    &.sm-vertical {
+        border-width: 1px;
     }
 }
