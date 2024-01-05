@@ -5,7 +5,7 @@ var filter_values = new Array();
 function ApplyFilter( value ) {
     const grid = document.getElementById("site-grid").getElementsByClassName("site-wrapper");
     $(grid).each(function() {
-        subjects = $(this).data("subject").split(" ");
+        let subjects = $(this).data("subject").split(" ");
         if ( subjects.includes(value) ) {
             $(this).removeClass('hidden');
         } else {
@@ -28,7 +28,7 @@ function RenderFilter() {
     const filter = document.getElementById("site-filter");
     filter_values.sort();
     $(filter_values).each(function(index, value) {
-        markup = `<input id="${Hyphenate(value)}" type="radio" name="site-filter-value" value="${Hyphenate(value)}"><label for="${Hyphenate(value)}" class="btn button-secondary">${value}</label>`
+        let markup = `<input id="${Hyphenate(value)}" type="radio" name="site-filter-value" value="${Hyphenate(value)}"><label for="${Hyphenate(value)}" class="btn button-secondary">${value}</label>`
         filter.innerHTML += markup;
     });
 }
@@ -37,12 +37,12 @@ function RenderSite( site ) {
     // This approach cribbed from https://gomakethings.com/html-templates-with-vanilla-javascript/
     const grid = document.getElementById("site-grid");
     site["dcterms:subject"].map(BuildFilter);
-    subjectlist = `All ${site["dcterms:subject"].map(pluck('@value')).map(Hyphenate).join(" ")}`;
-    img = ``;
+    let subjectlist = `All ${site["dcterms:subject"].map(pluck('@value')).map(Hyphenate).join(" ")}`;
+    let img = ``;
     if ( site["thumbnail_display_urls"]["large"] ) {
         img = `<img src="${site["thumbnail_display_urls"]["large"]}" alt="${site["dcterms:description"][0]["@value"]}">`
     }
-    markup =
+    let markup =
         `<div class="site-wrapper" data-subject="${subjectlist}">
           <a href="${site["bibo:uri"][0]["@id"]}" class="site">
             ${img}
