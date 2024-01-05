@@ -1,0 +1,90 @@
+@import 'colors';
+
+.site-filter-outer {
+    border: none;
+    margin: 0;
+    margin-bottom: 2rem;
+    padding: 0;
+
+    h3 {
+        display: inline-block;
+        margin-right: 2rem;
+    }
+
+    #site-filter {
+        input {
+            display: none;
+        }
+
+        label {
+            margin-right: 1rem;
+            margin-top: 2rem;
+
+            &:first-of-type {
+                margin-left: 1rem;
+            }
+        }
+
+        input:checked + label {
+            background-color: $gray-l3;
+        }
+    }
+}
+
+#site-grid {
+    display: flex;
+    flex-flow: row wrap;
+
+    .site-wrapper {
+        display: inline-block;
+        overflow: hidden;
+        width: 30%;
+
+        a.site {
+            border: 1px solid $gray-l3;
+            box-shadow: 0 0 5px $gray-l3;
+            color: $black;
+            display: flex;
+            flex-flow: column;
+            font-weight: bold;
+            margin: 1rem;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+
+            img {
+                padding-bottom: 1rem;
+            }
+
+            &:focus,
+            &:hover {
+                background: $gray-l3;
+                color: $black;
+            }
+        }
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+// Two across on tablet-sized screens
+@media (width <= 800px) {
+    #site-grid {
+        .site-wrapper {
+            width: 50%;
+        }
+    }
+}
+
+// Single column on phones
+@media (width <= 400px) {
+    #site-grid {
+        flex-flow: column;
+
+        .site-wrapper {
+            width: 100%;
+        }
+    }
+}

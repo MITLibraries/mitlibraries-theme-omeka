@@ -3,6 +3,7 @@ $translate = $this->plugin('translate');
 $banner_url = $this->themeSettingAssetUrl('banner');
 $banner_text = $this->themeSetting('banner_text');
 $stylesheet = $this->themeSetting('stylesheet');
+$no_search = $this->themeSetting('no_search');
 
 $nav_style = $this->themeSetting('nav_style');
 $body_classes = 'nav-horizontal';
@@ -83,13 +84,15 @@ $userBar = $this->userBar();
                     </div>
                 </div>
             </div>
-            <div class="wrap-outer-search layout-band">
-                <div class="wrap-content">
-                    <div class="search">
-                        <?php echo $this->partial('common/search-form'); ?>
+            <?php if (!isset($no_search) || 0 == $no_search) { ?>
+                <div class="wrap-outer-search layout-band">
+                    <div class="wrap-content">
+                        <div class="search">
+                            <?php echo $this->partial('common/search-form'); ?>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
             <div class="wrap-outer-content layout-band">
                 <div class="<?php echo $wrap_classes; ?>">
                     <?php if ('vertical' == $nav_style) { ?>

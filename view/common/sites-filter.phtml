@@ -1,0 +1,34 @@
+<?php
+$sites_set = $this->themeSetting('sites_set');
+$sites_page = $this->themeSetting('sites_page');
+
+if (isset($sites_set) && isset($sites_page) && $sites_page == $page->slug()) {
+    $this->headScript()->appendFile($this->assetUrl('js/sites-filter.js'));
+    $this->headLink()->appendStylesheet($this->assetUrl('css/sites-filter.css'));
+
+    ?>
+    <fieldset class="site-filter-outer">
+        <span><strong>Filter exhibits by:</strong></span>
+        <span id="site-filter">
+            <input id="All" type="radio" name="site-filter-value" value="All">
+            <label class="btn button-secondary" for="All">All</label>
+        </span>
+    </fieldset>
+    <div id="site-grid"></div>
+    <script>
+        $(document).ready(function() {
+            const filter = document.getElementById("site-filter");
+
+            LoadItemSet( <?php echo $sites_set; ?> );
+
+            filter.addEventListener(
+                "change",
+                (event) => {
+                    ApplyFilter( event.target.defaultValue );
+                },
+                false,
+            );
+        });
+    </script>
+    <?php
+}
