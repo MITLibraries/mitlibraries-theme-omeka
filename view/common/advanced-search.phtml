@@ -28,7 +28,7 @@ if ($this->status()->isAdminRequest()) {
 }
 switch ($resourceType) {
     case 'item':
-        $addPartial('common/advanced-search/item-sets');
+        // $addPartial('common/advanced-search/item-sets');
         if ($this->status()->isAdminRequest()) {
             $addPartial('common/advanced-search/site');
         }
@@ -47,8 +47,8 @@ if ($this->status()->isAdminRequest()) {
 if ($this->status()->isSiteRequest()) {
     $addPartial('common/advanced-search/resource-template-restrict');
 }
-// $addPartial('common/advanced-search/ids');
-// $addPartial('common/advanced-search/sort');
+$addPartial('common/advanced-search/ids');
+$addPartial('common/advanced-search/sort');
 
 $filterResults = $this->trigger(
     'view.advanced_search',
