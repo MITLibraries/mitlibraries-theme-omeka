@@ -40,23 +40,16 @@ ul.resource-list {
     padding-left: unset;
 
     .resource {
-        border-top: 1px solid $gray-l3;
-        margin: 0;
-
         a {
-            display: flow-root;
-            margin: 0;
             padding: 1rem;
-            text-align: left;
             text-decoration: none;
 
             img {
                 border: 1px solid $gray-l3;
                 box-shadow: 0 0 5px $gray-l3;
-                float: right;
-                max-width: 100px;
-                max-height: 200px;
+                max-height: 20rem;
                 padding: 0.5rem;
+                object-fit: contain;
             }
 
             .description {
@@ -84,9 +77,47 @@ ul.resource-list {
                 }
             }
         }
+    }
+}
 
-        &:last-child {
-            border-bottom: 1px solid $gray-l3;
+ul.resource-list.list {
+    border-bottom: 1px solid $gray-l3;
+
+    .resource {
+        border-top: 1px solid $gray-l3;
+        margin: 0;
+
+        a {
+            display: flow-root;
+            margin: 0;
+            text-align: left;
+
+            img {
+                float: right;
+                max-width: 10rem;
+            }
+
+
+        }
+    }
+}
+
+ul.resource-list.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+    grid-auto-rows: minmax(100px, auto);
+
+    .resource {
+        a {
+            align-items: center;
+            display: flex;
+            flex-flow: column;
+            height: 100%;
+
+            img {
+                max-width: 20rem;
+            }
         }
     }
 }
