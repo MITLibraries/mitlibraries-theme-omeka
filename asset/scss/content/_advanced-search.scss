@@ -1,0 +1,24 @@
+form#advanced-search {
+    input,
+    select {
+        padding: 1rem;
+    }
+
+    .advanced-search-content {
+        > div {
+            border-bottom: 1px solid $gray-l3;
+            padding: 2rem 0;
+        }
+
+        span.label,
+        div.field .field-meta label {
+            font-size: 2rem;
+            font-weight: bold;
+            padding-bottom: 1rem;
+        }
+    }
+
+    #page-actions {
+        padding-top: 2rem;
+    }
+}
