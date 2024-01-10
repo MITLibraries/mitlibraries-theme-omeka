@@ -8,6 +8,11 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
+$browse_style = $this->themeSetting('browse_style');
+if (!isset($browse_style)) {
+    $browse_style = "list";
+}
+
 $query = $this->params()->fromQuery();
 $itemSetShow = isset($itemSet);
 if ($itemSetShow) :
@@ -37,7 +42,7 @@ endif;
 <p><?php echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?></p>
 
 <?php $this->trigger('view.browse.before'); ?>
-<ul class="resource-list">
+<ul class="resource-list <?php echo $browse_style; ?>">
 <?php
 $headingTerm = $this->siteSetting('browse_heading_property_term');
 $bodyTerm = $this->siteSetting('browse_body_property_term');
