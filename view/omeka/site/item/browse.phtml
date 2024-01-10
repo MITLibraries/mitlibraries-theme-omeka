@@ -8,6 +8,8 @@ $filterLocale = (bool) $this->siteSetting('filter_locale_values');
 $lang = $this->lang();
 $valueLang = $filterLocale ? [$lang, ''] : null;
 
+$no_advanced_search = $this->themeSetting('no_advanced_search');
+
 $browse_style = $this->themeSetting('browse_style');
 if (!isset($browse_style)) {
     $browse_style = "list";
@@ -39,7 +41,10 @@ endif;
 <div class="browse-controls">
     <span class="browse-label">Browse by:</span><?php echo $this->browse()->renderSortSelector('items'); ?>
 </div>
-<p><?php echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?></p>
+
+<?php if (!$no_advanced_search) { ?>
+    <p><?php echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?></p>
+<?php } ?>
 
 <?php $this->trigger('view.browse.before'); ?>
 <ul class="resource-list <?php echo $browse_style; ?>">
