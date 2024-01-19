@@ -1,4 +1,6 @@
 ul.navigation.sm-mint {
+    z-index: 999; // This needs to be lower than what lightbox gallery uses (~1000-1050).
+
     li {
         margin-bottom: inherit;
 
