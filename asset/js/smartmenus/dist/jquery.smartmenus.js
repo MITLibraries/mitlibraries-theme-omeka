@@ -178,7 +178,7 @@
 					$(window).on(getEventsNS({ 'resize orientationchange': $.proxy(this.winResize, this) }, eNS));
 
 					if (this.opts.subIndicators) {
-						this.$subArrow = $('<span/>').addClass('sub-arrow');
+						this.$subArrow = $('<button/>').addClass('sub-arrow');
 						if (this.opts.subIndicatorsText) {
 							this.$subArrow.html(this.opts.subIndicatorsText);
 						}
@@ -274,7 +274,7 @@
 					.removeAttr('aria-expanded')
 					.closest('li').removeDataSM('sub');
 				if (this.opts.subIndicators) {
-					this.$root.find('span.sub-arrow').remove();
+					this.$root.find('button.sub-arrow').remove();
 				}
 				if (this.opts.markCurrentItem) {
 					this.$root.find('a.current').removeClass('current');

@@ -5,6 +5,8 @@ $(function() {
     $('#navbar-container ul.navigation').addClass('sm sm-mint');
     // All SmartMenus get called.
     $('#navbar-container ul.navigation').smartmenus({
+        subIndicatorsPos: 'after',
+        subIndicatorsText: '+',
         subMenusSubOffsetX: 6,
         subMenusSubOffsetY: -8
     });
