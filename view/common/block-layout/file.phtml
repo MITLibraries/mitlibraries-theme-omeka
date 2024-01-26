@@ -17,9 +17,9 @@
         ?>
         <?php $showTitleOption = $this->showTitleOption; ?>
         <?php if ($showTitleOption == 'item_title') : ?>
-        <h3><?php echo $item->link($item->displayTitle()); ?></h3>
+        <div class="caption"><?php echo $item->link($item->displayTitle()); ?></div>
         <?php elseif ($showTitleOption == 'file_name') : ?>
-        <h3><?php echo $media->displayTitle(); ?></h3>
+        <div class="caption"><?php echo $media->displayTitle(); ?></div>
         <?php endif; ?>
     <?php endif; ?>
 
