@@ -3,6 +3,8 @@
 }
 
 ul.navigation.sm-mint {
+    background: inherit;
+    border-top: none;
     z-index: 999; // This needs to be lower than what lightbox gallery uses (~1000-1050).
 
     li {
