@@ -1,5 +1,6 @@
-<div class="item-showcase <?php echo $this->thumbnailType; ?>">
-<?php foreach ($attachments as $attachment) : ?>
+<div class="<?php echo $this->alignmentClass . ' ' . $this->thumbnailType; ?> file">
+    <div class="attachments">
+<?php foreach ($this->attachments as $attachment) : ?>
     <div class="item resource">
     <?php
     $item = $attachment->item();
@@ -8,7 +9,10 @@
         <?php
         $media = $attachment->media() ?: $item->primaryMedia();
         if ($media) :
-            echo $item->linkRaw($this->thumbnail($media, $this->thumbnailType));
+            echo $media->render([
+                'thumbnailType' => $thumbnailType,
+                'link' => $link,
+            ]);
         endif;
         ?>
         <?php $showTitleOption = $this->showTitleOption; ?>
@@ -27,4 +31,5 @@
     <?php endif; ?>
     </div>
 <?php endforeach; ?>
+    </div>
 </div>

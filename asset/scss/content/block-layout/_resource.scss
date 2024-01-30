@@ -23,7 +23,7 @@ body div.resource {
         text-align: left;
     }
 
-    h3 + .caption {
+    .caption + .caption {
         border-top: 1px solid $gray-l3;
         padding-top: 1rem;
     }
