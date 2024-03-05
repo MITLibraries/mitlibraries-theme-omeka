@@ -8,26 +8,16 @@ if (isset($sites_set) && isset($sites_page) && $sites_page == $page->slug()) {
 
     ?>
     <fieldset class="site-filter-outer">
-        <span><strong>Filter exhibits by:</strong></span>
+        <legend>Filter exhibits by:</legend>
         <span id="site-filter">
-            <input id="All" type="radio" name="site-filter-value" value="All">
-            <label class="btn button-secondary" for="All">All</label>
+            <button role="radio" class="filter-button" value="All">All</button>
         </span>
     </fieldset>
-    <div id="site-grid"></div>
+    <div id="filter-live" role="status" aria-live="polite" aria-atomic="true" class="sr"></div>
+    <ul id="site-grid"></ul>
     <script>
         $(document).ready(function() {
-            const filter = document.getElementById("site-filter");
-
             LoadItemSet( <?php echo $sites_set; ?> );
-
-            filter.addEventListener(
-                "change",
-                (event) => {
-                    ApplyFilter( event.target.defaultValue );
-                },
-                false,
-            );
         });
     </script>
     <?php
