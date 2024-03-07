@@ -1,3 +1,5 @@
+@import 'variables';
+
 // ----------------------------
 // #CONTENT
 // ----------------------------
@@ -34,5 +36,17 @@
         #search-form {
             margin: 0;
         }
+    }
+}
+
+.hidden-above-md {
+    @media only screen and (min-width: $bp-screen-md) {
+        display: none;
+    }
+}
+
+.hidden-below-lg {
+    @media only screen and (max-width: $bp-screen-md) {
+        display: none;
     }
 }

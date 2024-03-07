@@ -2,36 +2,55 @@
 @import 'variables';
 
 .site-filter-outer {
-    align-items: baseline;
     border: none;
     display: flex;
-    margin: 0;
-    margin-bottom: 2rem;
+    flex-flow: column;
+    margin: 0 0 1rem;
     padding: 0;
 
     legend {
-        float: left;
-        font-weight: bold;
-
         h2 {
             font-size: inherit;
+
+            button {
+                font-size: inherit;
+                font-weight: inherit;
+
+                .collapsed {
+                    display: none;
+                }
+
+                .open {
+                    display: inherit;
+                }
+            }
+        }
+    }
+
+    &.collapsed legend h2 button {
+        .collapsed {
+            display: inherit;
+        }
+
+        .open {
+            display: none;
         }
     }
 
     #site-filter {
-        float: left;
+        align-items: initial;
+        border-top: 1px solid $gray-l3;
+        display: flex;
+        flex-flow: column;
 
         button {
             background-color: $white;
-            border: 1px solid $gray-l3;
-            padding: 1rem;
-            font-size: 1.625rem;
-            margin-right: 1rem;
-            margin-top: 2rem;
-
-            &:first-of-type {
-                margin-left: 1rem;
-            }
+            border: none;
+            border-bottom: 1px solid $gray-l3;
+            font-size: inherit;
+            margin: 0;
+            padding: 0.5rem 1rem;
+            text-align: left;
 
             &:hover,
             &:focus {
@@ -45,6 +64,64 @@
                 border-color: $gray-l3;
                 color: $black;
             }
+        }
+    }
+
+    &.collapsed #site-filter {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: $bp-screen-md) {
+    .site-filter-outer {
+        align-items: baseline;
+        border: none;
+        flex-flow: row wrap;
+        margin: 0;
+        margin-bottom: 2rem;
+        padding: 0;
+
+        legend {
+            float: left;
+
+            h2 button {
+                .collapsed {
+                    display: inherit;
+                }
+
+                .open {
+                    display: none;
+                }
+            }
+        }
+
+        &.collapsed legend h2 button {
+            .collapsed {
+                display: inherit;
+            }
+
+            .open {
+                display: none;
+            }
+        }
+
+        #site-filter {
+            border: none;
+            flex-flow: row wrap;
+            float: left;
+
+            button {
+                background-color: $white;
+                border: 1px solid $gray-l3;
+                display: inline-block;
+                padding: 1rem;
+                font-size: 1.625rem;
+                margin: 1rem;
+            }
+        }
+
+        &.collapsed #site-filter {
+            display: inherit;
         }
     }
 }
