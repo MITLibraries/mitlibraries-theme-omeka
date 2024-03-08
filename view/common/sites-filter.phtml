@@ -8,12 +8,12 @@ if (isset($sites_set) && isset($sites_page) && $sites_page == $page->slug()) {
 
     ?>
     <fieldset class="site-filter-outer">
-        <legend>Filter exhibits by:</legend>
+        <legend><h2>Filter exhibits by:</h2></legend>
         <span id="site-filter">
-            <button role="radio" class="filter-button" value="All">All</button>
+            <button class="filter-button" value="All">All</button>
         </span>
     </fieldset>
-    <div id="filter-live" role="status" aria-live="polite" aria-atomic="true" class="sr"></div>
+    <h3 id="filter-live" role="status" aria-live="polite" aria-atomic="true" class="sr"></h3>
     <ul id="site-grid"></ul>
     <script>
         $(document).ready(function() {

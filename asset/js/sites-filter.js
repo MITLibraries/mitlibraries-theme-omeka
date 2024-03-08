@@ -17,7 +17,8 @@ function ApplyFilter( value ) {
         }
     });
     visible_sites = document.getElementsByClassName("site-wrapper visible").length;
-    live.innerHTML = `There are ${visible_sites} exhibits visible in the ${value} category.`;
+    let quantity = visible_sites > 1 ? "exhibits" : "exhibit";
+    live.innerHTML = `${visible_sites} ${quantity} in ${value}.`;
 }
 
 function BuildFilter( value ) {
@@ -34,7 +35,7 @@ function RenderFilter() {
     const filter = document.getElementById("site-filter");
     filter_values.sort();
     $(filter_values).each(function(index, value) {
-        let markup = `<button role="radio" class="filter-button" value="${Hyphenate(value)}">${value}</button>`;
+        let markup = `<button class="filter-button" value="${Hyphenate(value)}">${value}</button>`;
         filter.innerHTML += markup;
     });
 }

@@ -11,6 +11,10 @@
     legend {
         float: left;
         font-weight: bold;
+
+        h2 {
+            font-size: inherit;
+        }
     }
 
     #site-filter {
