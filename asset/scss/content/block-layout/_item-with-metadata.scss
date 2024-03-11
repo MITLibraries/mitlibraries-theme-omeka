@@ -36,7 +36,7 @@
     }
 }
 
-@media (width <= 600px) {
+@media only screen and (max-width: 600px) {
     .item-with-metadata {
         float: none;
         width: 100%;

@@ -4,6 +4,7 @@
     "stylelint-stylistic"
   ],
   "rules": {
+    "media-feature-range-notation": "prefix",
     "stylistic/block-opening-brace-newline-after": "always",
     "stylistic/block-opening-brace-space-before": "always",
     "color-named": "never",
