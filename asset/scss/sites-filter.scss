@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'variables';
 
 .site-filter-outer {
     align-items: baseline;
@@ -89,7 +90,7 @@
 }
 
 // Two across on tablet-sized screens
-@media (width <= 800px) {
+@media only screen and (max-width: $bp-screen-md) {
     #site-grid {
         .site-wrapper {
             width: 50%;
@@ -98,7 +99,7 @@
 }
 
 // Single column on phones
-@media (width <= 400px) {
+@media only screen and (max-width: $bp-screen-sm) {
     #site-grid {
         flex-flow: column;
 
