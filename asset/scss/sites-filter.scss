@@ -1,32 +1,49 @@
 @import 'colors';
 
 .site-filter-outer {
+    align-items: baseline;
     border: none;
+    display: flex;
     margin: 0;
     margin-bottom: 2rem;
     padding: 0;
 
-    h3 {
-        display: inline-block;
-        margin-right: 2rem;
+    legend {
+        float: left;
+        font-weight: bold;
+
+        h2 {
+            font-size: inherit;
+        }
     }
 
     #site-filter {
-        input {
-            display: none;
-        }
+        float: left;
 
-        label {
+        button {
+            background-color: $white;
+            border: 1px solid $gray-l3;
+            padding: 1rem;
+            font-size: 1.625rem;
             margin-right: 1rem;
             margin-top: 2rem;
 
             &:first-of-type {
                 margin-left: 1rem;
             }
-        }
 
-        input:checked + label {
-            background-color: $gray-l3;
+            &:hover,
+            &:focus {
+                background-color: $black;
+                border-color: $black;
+                color: $white;
+            }
+
+            &.pressed {
+                background-color: $gray-l3;
+                border-color: $gray-l3;
+                color: $black;
+            }
         }
     }
 }
@@ -34,11 +51,12 @@
 #site-grid {
     display: flex;
     flex-flow: row wrap;
+    padding-left: 0;
 
     .site-wrapper {
         display: inline-block;
         overflow: hidden;
-        width: 30%;
+        width: 33%;
 
         a.site {
             border: 1px solid $gray-l3;
@@ -53,6 +71,7 @@
             text-decoration: none;
 
             img {
+                order: -1;
                 padding-bottom: 1rem;
             }
 
