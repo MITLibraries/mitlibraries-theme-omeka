@@ -21,6 +21,10 @@ body div.resource {
     .caption {
         padding: 0 1rem 1rem;
         text-align: left;
+
+        a {
+            display: inline;
+        }
     }
 
     .caption + .caption {
