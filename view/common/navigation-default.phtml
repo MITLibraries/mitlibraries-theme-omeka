@@ -7,8 +7,23 @@
  */
 
 ?>
-<div id="navbar-container">
+<div id="navbar-container" class="sm-navbar">
     <nav aria-label="<?php echo $this->escapeHtml($site->title()); ?>">
-        <?php echo $site->publicNav()->menu(); ?>
+        <div class="sm-container">
+
+            <span class="sm-toggler-state" id="sm-toggler-state-1"></span>
+            <div class="sm-toggler">
+              <a class="sm-toggler-anchor sm-toggler-anchor--show" href="#sm-toggler-state-1" role="button" aria-label="Open main menu">
+                <span class="sm-toggler-icon sm-toggler-icon--show"></span>
+              </a>
+              <a class="sm-toggler-anchor sm-toggler-anchor--hide" href="#" role="button" aria-label="Close main menu">
+                <span class="sm-toggler-icon sm-toggler-icon--hide"></span>
+              </a>
+            </div>
+
+            <div class="sm-collapse">
+                <?php echo $site->publicNav()->menu(); ?>
+            </div>
+        </div>
     </nav>
 </div>

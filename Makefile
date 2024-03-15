@@ -29,10 +29,10 @@ update: fetch ## Synchronize latest (auto runs clean and fetch first)
 update-js: ## Synchronize needed libraries from node_modules to asset/js
 	## Smartmenus
 	rm -rf asset/js/smartmenus/
-	mkdir -p asset/js/smartmenus/dist/css/sm-mint
-	cp node_modules/smartmenus/dist/jquery.smartmenus.min.js asset/js/smartmenus/dist/jquery.smartmenus.min.js
-	cp node_modules/smartmenus/dist/css/sm-core-css.css asset/js/smartmenus/dist/css/sm-core-css.css
-	cp node_modules/smartmenus/dist/css/sm-mint/sm-mint.css asset/js/smartmenus/dist/css/sm-mint/sm-mint.css
+	mkdir -p asset/js/smartmenus/dist/js/
+	mkdir -p asset/js/smartmenus/dist/css/
+	cp node_modules/smartmenus/dist/js/smartmenus.browser.min.js asset/js/smartmenus/dist/js/smartmenus.browser.min.js
+	cp node_modules/smartmenus/dist/css/smartmenus.css asset/js/smartmenus/dist/css/smartmenus.css
 
 deploy: ## Deploys the theme on a host server
 	rsync asset /var/www/html/themes/mitlibraries-theme-omeka/asset/
