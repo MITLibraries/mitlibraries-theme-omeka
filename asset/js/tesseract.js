@@ -1,4 +1,8 @@
 $(function() {
+    $('#navbar-container ul.navigation').addClass('sm-nav sm-nav--left');
+    // const navbar1 = new SmartMenus(document.querySelector('#navbar-container'));
+    console.log('SmartMenus just fired.');
+    /*
     // Only the vertical configuration gets this class.
     $('body.nav-vertical #navbar-container ul.navigation').addClass('sm-vertical');
     // All SmartMenus get these classes.
@@ -8,4 +12,5 @@ $(function() {
         subMenusSubOffsetX: 6,
         subMenusSubOffsetY: -8
     });
+    */
 });

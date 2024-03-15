@@ -1,3 +1,10 @@
+$font-size: 1.7rem !default;
+$font-size-small: 1.7rem !default;
+
+#navbar-container {
+  --sm-navbar-z-index: 999;
+}
+
 ul.navigation.sm-mint {
     z-index: 999; // This needs to be lower than what lightbox gallery uses (~1000-1050).
 
