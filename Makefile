@@ -26,9 +26,6 @@ update: fetch ## Synchronize latest (auto runs clean and fetch first)
 	cp tmp/mitlib-style-master/_assets/i/mitlib-wordmark.svg asset/img/mitlib-style/mitlib-wordmark.svg
 	cp tmp/mitlib-style-master/_assets/i/vi-shape7-tp.svg    asset/img/mitlib-style/vi-shape7-tp.svg
 
-update-js: ## Synchronize needed libraries from node_modules to asset/js
-	echo 'This is where javascript would be coped from node_modules to asset/js'
-
 deploy: ## Deploys the theme on a host server
 	rsync asset /var/www/html/themes/mitlibraries-theme-omeka/asset/
 	rsync theme.jpg /var/www/html/themes/mitlibraries-theme-omeka/
