@@ -19,8 +19,6 @@ $this->headMeta()->setCharset('utf-8');
 $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1');
 $this->headTitle($this->setting('installation_title', 'Omeka S'))->setSeparator(' · ');
 $this->headLink()->appendStylesheet($this->assetUrl('css/iconfonts.css', 'Omeka'));
-$this->headLink()->appendStylesheet($this->assetUrl('js/smartmenus/dist/css/sm-core-css.css'));
-$this->headLink()->appendStylesheet($this->assetUrl('js/smartmenus/dist/css/sm-mint/sm-mint.css'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/libraries-main.min.css'));
 $this->headLink()->appendStylesheet($this->assetUrl('css/base.css'));
 if (isset($stylesheet)) {
@@ -31,7 +29,6 @@ if (isset($stylesheet)) {
 }
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/global.js', 'Omeka'));
-$this->headScript()->appendFile($this->assetUrl('js/smartmenus/dist/jquery.smartmenus.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/tesseract.js'));
 $this->headScript()->appendFile($this->assetUrl('js/matomo.js'));
 $this->trigger('view.layout');
