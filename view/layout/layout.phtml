@@ -29,7 +29,7 @@ if (isset($stylesheet)) {
 }
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $this->headScript()->appendFile($this->assetUrl('js/global.js', 'Omeka'));
-$this->headScript()->appendFile($this->assetUrl('js/tesseract.js'));
+$this->headScript()->appendFile($this->assetUrl('js/tesseract.js'), 'module');
 $this->headScript()->appendFile($this->assetUrl('js/matomo.js'));
 $this->trigger('view.layout');
 $userBar = $this->userBar();
