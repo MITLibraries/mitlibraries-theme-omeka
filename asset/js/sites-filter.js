@@ -69,7 +69,6 @@ function ResetFilters() {
 }
 
 function UpdateFilter( e ) {
-    console.log(e);
     e.setAttribute('aria-pressed', 'true');
     $(e).toggleClass('pressed');
 }

@@ -7,8 +7,16 @@ if (isset($sites_set) && isset($sites_page) && $sites_page == $page->slug()) {
     $this->headLink()->appendStylesheet($this->assetUrl('css/sites-filter.css'));
 
     ?>
-    <fieldset class="site-filter-outer">
-        <legend><h2>Filter exhibits by:</h2></legend>
+    <fieldset class="site-filter-outer collapsed">
+        <legend>
+            <h2>
+                <button class="hidden-above-md" id="site-filter-toggle">
+                    <span class="open">Hide filter</span>
+                    <span class="collapsed">Filter exhibits by category</span>
+                </button>
+                <span class="hidden-below-lg">Filter exhibits by category</span>
+            </h2>
+        </legend>
         <span id="site-filter">
             <button class="filter-button" value="All">All</button>
         </span>
@@ -18,6 +26,18 @@ if (isset($sites_set) && isset($sites_page) && $sites_page == $page->slug()) {
     <script>
         $(document).ready(function() {
             LoadItemSet( <?php echo $sites_set; ?> );
+
+            let toggle = document.getElementById('site-filter-toggle');
+            let container = document.getElementsByClassName('site-filter-outer')[0];
+
+            toggle.addEventListener(
+                "click",
+                (event) => {
+                    container.classList.toggle('collapsed');
+                },
+                false,
+            );
+
         });
     </script>
     <?php
