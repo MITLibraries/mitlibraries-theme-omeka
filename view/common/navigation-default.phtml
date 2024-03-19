@@ -1,3 +1,5 @@
 <div id="navbar-container">
-    <?php echo $site->publicNav()->menu(); ?>
+    <nav aria-label="<?php echo $this->escapeHtml($site->title()); ?>">
+        <?php echo $site->publicNav()->menu(); ?>
+    </nav>
 </div>
