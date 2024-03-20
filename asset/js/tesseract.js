@@ -8,13 +8,14 @@ docs/reference/navigation.md
 import accessibleMenu from "https://esm.sh/accessible-menu@4.0.1";
 
 document.addEventListener("DOMContentLoaded", () => {
-  var nav = document.querySelector("#navbar-container");
-  var menuElement = nav.querySelector("ul");
-  var controllerElement = nav.querySelector("#navbar-toggle");
+  const nav = document.querySelector("#navbar-container nav");
+  const menuElement = nav.querySelector("ul");
+  const controllerElement = nav.querySelector("#navbar-toggle");
 
-  var menu = new accessibleMenu.Menubar({
+  const menu = new accessibleMenu.TopLinkDisclosureMenu({
     menuElement,
     submenuItemSelector: ".dropdown",
+    submenuSubtoggleSelector: "button",
     containerElement: nav,
     controllerElement,
     optionalKeySupport: true,
