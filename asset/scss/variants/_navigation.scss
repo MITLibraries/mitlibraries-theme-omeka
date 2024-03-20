@@ -1,0 +1,39 @@
+ul.navigation {
+    border-color: $color-menu-accent;
+
+    li a {
+        color: $black;
+    }
+
+    li {
+        a:hover,
+        a:focus,
+        a:active,
+        a.highlighted {
+            background-color: $color-menu-accent;
+            color: $color-menu-accent-text;
+        }
+    }
+
+    ul {
+        background-color: $color-menu-background;
+
+        a:hover,
+        a:focus,
+        a:active,
+        a.highlighted {
+            background-color: $color-menu-accent;
+        }
+    }
+
+    &.sm-vertical {
+        border-color: $color-menu-accent;
+
+        a:hover,
+        a:focus,
+        a:active,
+        a.highlighted {
+            background-color: $color-menu-accent;
+        }
+    }
+}
