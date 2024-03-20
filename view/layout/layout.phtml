@@ -75,7 +75,7 @@ $userBar = $this->userBar();
                         </div>
                         <?php if ('default' == $nav_style) { ?>
                             <div class="page-menu">
-                                <?php echo $this->partial('common/navigation-default'); ?>
+                                <?php echo $site->publicNav()->menu()->setPartial('common/navigation/menu.phtml')->renderPartialWithParams(['layout' => 'horizontal']); ?>
                             </div>
                         <?php } ?>
                     </div>
@@ -93,7 +93,7 @@ $userBar = $this->userBar();
             <div class="wrap-outer-content layout-band">
                 <div class="<?php echo $wrap_classes; ?>">
                     <?php if ('vertical' == $nav_style) { ?>
-                        <?php echo $this->partial('common/navigation-vertical'); ?>
+                        <?php echo $site->publicNav()->menu()->setPartial('common/navigation/menu.phtml')->renderPartialWithParams(['layout' => 'vertical']); ?>
                     <?php } ?>
                     <div id="content-main" class="<?php echo $content_classes; ?>" role="main">
                         <?php echo $this->messages(); ?>

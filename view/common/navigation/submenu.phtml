@@ -1,0 +1,22 @@
+<ul class="dropdown-menu">
+    <?php foreach ($children as $child) { ?>
+        <?php $hasChildren = $child->hasPages(); ?>
+        <?php if (!$this->navigation()->accept($child)) continue; ?>
+
+        <?php if (!$hasChildren) { ?>
+            <li<?php if ($child->isActive()) echo ' class="active"' ?>>
+                <a href="<?php echo $child->getHref(); ?>">
+                    <?php echo $this->escapeHtml($this->translate($child->getLabel(), $this->navigation($container)->getTranslatorTextDomain())); ?>
+                </a>
+            </li>
+        <?php } else { ?>
+            <li class="dropdown<?php if ($child->isActive(true)) echo ' active' ?>">
+                <a href="<?php echo $child->getHref(); ?>">
+                    <?php echo $this->escapeHtml($this->translate($child->getLabel(), $this->navigation($container)->getTranslatorTextDomain())); ?>
+                </a>
+                <button class="dropdown-toggle"></button>
+                <?php echo $this->partial('common/navigation/submenu', ['container' => $container, 'children' => $child->getPages()]); ?>
+            </li>
+        <?php } ?>
+    <?php } ?>
+</ul>
