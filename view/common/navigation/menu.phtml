@@ -1,0 +1,42 @@
+<?php
+/**
+ * Based on the navigation template in the Foundation theme, which cites
+ * https://github.com/fabiopaiva/zf2-navigation-bootstrap3
+ *
+ */
+
+/* @var $container Laminas\Navigation\Navigation */
+$container = $this->container;
+
+$layoutClasses = [
+    'horizontal' => 'horizontal',
+    'vertical' => 'col1q vertical',
+]
+?>
+<div id="navbar-container" class="<?php echo $layoutClasses[$layout]; ?>">
+    <nav aria-label="Site title">
+        <button id="navbar-toggle">X</button>
+        <ul class="navigation">
+            <?php foreach ($container as $page) { ?>
+                <?php if (!$this->navigation()->accept($page)) continue; ?>
+                <?php /* @var $page Laminas\Navigation\Page\Mvc */ ?>
+                <?php $hasChildren = $page->hasPages(); ?>
+                <?php if (!$hasChildren) { ?>
+                    <li<?php if ($page->isActive()) echo ' class="active"' ?>>
+                        <a href="<?php echo $page->getHref(); ?>">
+                            <?php echo $this->escapeHtml($this->translate($page->getLabel(), $this->navigation($container)->getTranslatorTextDomain())); ?>
+                        </a>
+                    </li>
+                <?php } else { ?>
+                    <li class="dropdown<?php if ($page->isActive(true)) echo ' active' ?>">
+                        <a href="<?php echo $page->getHref(); ?>">
+                            <?php echo $this->escapeHtml($this->translate($page->getLabel(), $this->navigation($container)->getTranslatorTextDomain())); ?>
+                        </a>
+                        <button class="dropdown-toggle" aria-label="<?php echo $this->escapeHtml($this->translate($page->getLabel(), $this->navigation($container)->getTranslatorTextDomain())); ?> submenu"></button>
+                        <?php echo $this->partial('common/navigation/submenu', ['container' => $container, 'children' => $page->getPages()]); ?>
+                    </li>
+                <?php } ?>
+            <?php } ?>
+        </ul>
+    </nav>
+</div>
