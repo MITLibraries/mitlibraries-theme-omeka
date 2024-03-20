@@ -1,11 +1,17 @@
-$(function() {
-    // Only the vertical configuration gets this class.
-    $('body.nav-vertical #navbar-container ul.navigation').addClass('sm-vertical');
-    // All SmartMenus get these classes.
-    $('#navbar-container ul.navigation').addClass('sm sm-mint');
-    // All SmartMenus get called.
-    $('#navbar-container ul.navigation').smartmenus({
-        subMenusSubOffsetX: 6,
-        subMenusSubOffsetY: -8
-    });
+import accessibleMenu from "https://esm.sh/accessible-menu@4.0.1";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector("#navbar-container nav");
+  const menuElement = nav.querySelector("ul");
+  const controllerElement = nav.querySelector("#navbar-toggle");
+
+  const menu = new accessibleMenu.TopLinkDisclosureMenu({
+    menuElement,
+    submenuItemSelector: ".dropdown",
+    submenuSubtoggleSelector: "button",
+    containerElement: nav,
+    controllerElement,
+    optionalKeySupport: true,
+    hoverType: "off" // "on", "dynamic"
+  });
 });
