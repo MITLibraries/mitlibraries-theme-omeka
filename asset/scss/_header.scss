@@ -3,26 +3,39 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
 
-    header {
+    .header-slim {
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
         .wrap-header-core {
-            width: 85%;
-        }
-
-        .wrap-header-supp {
-            width: 13%;
-        }
-
-        .logo-mit-lib {
+            width: unset;
             border-right: 1px solid $white;
             margin-right: 2rem;
             padding-right: 2rem;
         }
 
+        .wrap-header-platform {
+            flex-grow: 2;
+        }
+
+        .wrap-header-supp {
+            margin-left: 2rem;
+            width: unset;
+        }
+
+        .logo-mit-lib {
+            img {
+                height: unset;
+            }
+        }
+
         .platform-name {
-            color: #fff;
-            font-size: 2.8rem;
+            color: $white;
+            font-size: clamp(1rem, 5vw, 2.8rem);
             text-decoration: none;
-            vertical-align: middle;
+            white-space: nowrap;
 
             &:hover,
             &:focus {
@@ -35,26 +48,5 @@
                 height: 3.5rem;
             }
         }
-    }
-}
-
-@media only screen and (max-width: $bp-screen-600) {
-    .wrap-header {
-        header {
-            .logo-mit-lib {
-                border-right: none;
-                margin-right: inherit;
-                padding-right: inherit;
-            }
-
-            .platform-name {
-                display: block;
-                margin-top: 2rem;
-            }
-        }
-    }
-
-    .wrap-header-supp {
-        vertical-align: top;
     }
 }
