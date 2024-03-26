@@ -59,6 +59,17 @@ function RenderSite( site ) {
     grid.innerHTML += markup;
 };
 
+function RenderSitemap( site ) {
+    const link = document.createElement('link');
+    let site_url = site["bibo:uri"][0]["@id"].replace(/\/?(page\/.*)?$/gm, '') + '/sitemap.xml';
+    link.rel = 'sitemap';
+    link.type = 'application/xml';
+    link.title = `${site["o:title"]} sitemap`;
+    link.href = site_url;
+
+    document.head.appendChild(link);
+}
+
 function ResetFilters() {
     let filters = document.getElementsByClassName("filter-button");
 
@@ -94,6 +105,7 @@ function LoadItemSet( id ) {
     document.getElementById("site-grid").innerHTML = "";
     $.get( url, function( data ) {
         data.map(RenderSite);
+        data.map(RenderSitemap);
     }).done(function() {
         RenderFilter();
         ActivateFilter();

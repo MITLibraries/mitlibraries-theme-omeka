@@ -46,6 +46,7 @@ $userBar = $this->userBar();
         <?php echo $this->headStyle(); ?>
         <?php echo $this->headScript(); ?>
         <link rel="icon" type="image/x-icon" href="<?php echo $this->assetUrl('/img/mitlib-style/favicon.ico'); ?>">
+        <link rel="sitemap" type="application/xml" title="<?php echo $this->escapeHtml($site->title()); ?> sitemap" href="<?php echo $site->siteUrl(); ?>/sitemap.xml">
         <?php if ($banner_url) { ?>
             <style>
                 .page-banner {
