@@ -33,7 +33,9 @@ should have a more complete description).
 
 ### Dependencies
 
-YES | NO dependencies are updated
+- [ ] New dependencies have been added
+- [ ] Dependencies have been updated
+- [ ] No dependencies have changed
 
 ### Additional context needed to review
 
@@ -47,11 +49,11 @@ migration, or how to confirm the feature is working.
 
 - [ ] I have confirmed that the code works as intended.
 - [ ] Any CodeClimate issues have been fixed or confirmed as
-added technical debt.
+      added technical debt.
+- [ ] New dependencies are appropriate or there were no changes.
 
 ##### Documentation
 
 - [ ] The commit message is clear and follows our guidelines
       (not just this pull request message).
 - [ ] The documentation has been updated or is unnecessary.
-- [ ] New dependencies are appropriate or there were no changes.
