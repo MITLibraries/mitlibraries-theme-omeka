@@ -16,6 +16,11 @@ if (!isset($browse_style)) {
 }
 
 $query = $this->params()->fromQuery();
+$query_fields = array_keys($query);
+sort($query_fields);
+$query_fields_without_search = array('page', 'sort_by', 'sort_order');
+sort($query_fields_without_search);
+
 $itemSetShow = isset($itemSet);
 if ($itemSetShow) :
     $this->headLink()->appendStylesheet($this->assetUrl('css/resource-page-blocks.css', 'Omeka'));
@@ -38,9 +43,11 @@ endif;
 
 <?php echo $this->searchFilters(); ?>
 
-<div class="browse-controls">
-    <span class="browse-label">Browse by:</span><?php echo $this->browse()->renderSortSelector('items'); ?>
-</div>
+<?php if ($query_fields === $query_fields_without_search) { ?>
+    <div class="browse-controls">
+        <span class="browse-label">Browse by:</span><?php echo $this->browse()->renderSortSelector('items'); ?>
+    </div>
+<?php } ?>
 
 <?php if (!$no_advanced_search) { ?>
     <p><?php echo $this->hyperlink($translate('Advanced search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?></p>
