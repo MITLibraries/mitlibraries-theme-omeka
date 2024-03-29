@@ -59,6 +59,12 @@ ul.resource-list {
                 overflow: hidden;
             }
 
+            .resource-class span {
+                border: 1px solid $gray-l3;
+                padding: 2px 5px;
+                border-radius: 3px;
+            }
+
             .resource-name {
                 font-size: 1.9rem;
                 font-weight: bold;
@@ -88,17 +94,42 @@ ul.resource-list.list {
         margin: 0;
 
         a {
-            display: flow-root;
-            margin: 0;
-            text-align: left;
-
-            img {
-                float: right;
-                margin: 0 0 0 1rem;
+            display: flex;
+            flex-flow: row;
+            
+            .resource-image {
+                flex: initial;
+                margin-left: 1rem;
                 max-width: 10rem;
+                min-width: 10rem;
+                order: 2;
+
+                img {
+                    display: block;
+                    margin: 0 auto;
+                }
             }
 
+            .resource-info {
+                display: flex;
+                flex-flow: column;
+                flex: auto;
+                order: 1;
 
+                .description {
+                    order: 3;
+                }
+
+                .resource-class {
+                    margin-bottom: 0.5rem;
+                    order: 2;
+                }
+
+                .resource-name {
+                    margin-bottom: 0.5rem;
+                    order: 1;
+                }
+            }
         }
     }
 }
@@ -111,13 +142,39 @@ ul.resource-list.grid {
 
     .resource {
         a {
-            align-items: center;
+            align-items: flex-start;
             display: flex;
             flex-flow: column;
             height: 100%;
 
-            img {
-                max-width: 20rem;
+            .resource-image {
+                order: 1;
+
+                img {
+                    margin: 0 auto 1rem;
+                    max-width: 20rem;
+                }
+            }
+
+            .resource-info {
+                align-items: flex-start;
+                display: flex;
+                flex-flow: column;
+                order: 2;
+
+                .description {
+                    order: 4;
+                }
+
+                .resource-class {
+                    margin-bottom: 0.5rem;
+                    order: 2;
+                }
+
+                .resource-name {
+                    order: 3;
+                    margin-bottom: 0.5rem;
+                }
             }
         }
     }

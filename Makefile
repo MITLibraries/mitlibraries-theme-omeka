@@ -41,4 +41,5 @@ deploy: ## Deploys the theme on a host server
 	rsync --recursive --delete asset/img/ /var/www/html/themes/mitlibraries-theme-omeka/asset/img/
 	rsync --recursive --delete asset/js/ /var/www/html/themes/mitlibraries-theme-omeka/asset/js/
 	rsync --recursive --delete config/ /var/www/html/themes/mitlibraries-theme-omeka/config/
+	rsync --recursive --delete helper/ /var/www/html/themes/mitlibraries-theme-omeka/helper/
 	rsync --recursive --delete view/ /var/www/html/themes/mitlibraries-theme-omeka/view/
