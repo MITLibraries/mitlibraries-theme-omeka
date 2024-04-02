@@ -37,8 +37,8 @@ The markup which the user finally interacts with looks like this:
 
 The issue is that the element triggering the flyout menu (the 
 `<span class="sub-arrow"></span>` tag) is _inside_ the anchor element, making it
-challenging for users of assistive technologies to separate their interactions
-with the menu link and the submenu toggle.
+challenging (if not impossible) for users of assistive technologies to separate
+their interactions with the menu link and the submenu toggle.
 
 The current release of SmartMenus (1.2.1) does not support placing this toggle
 element outside of the link element, so it will be necessary to replace it with
@@ -84,7 +84,7 @@ CodePen](https://codepen.io/matt-bernhardt/pen/poBRKrY).
 This menu, when properly configured, appears to implement all the best practices
 for an accessible navigation menu for web application.
 
-#### Drawbacks
+#### Drawbacks of Accessible Menu
 
 There are several significant drawbacks to using this menu library.
 
@@ -123,14 +123,57 @@ found described in [several](https://purecss.io/menus/) [places](https://devsnap
 
 While attempting to implement the Accessible Menu library, we asked for feedback
 about our progress from Rich Caloggero, who was involved in our earlier
-accessibility testing. Rich helpfully assembled a mockup demonstrating a usable
+accessibility testing. Rich helpfully assembled a [mockup](https://richcaloggero.github.io/tools/createNavigation.html) demonstrating a usable
 navigation system with very little javascript (and no stylesheets).
 
-* Pros: This section needs to be filled out.
+#### Benefits of a bespoke approach
 
-* Cons: We will be responsible for maintaining the entirety of this solution,
-  and will need to preserve the bandwidth and skills to fulfill this
-  responsibility.
+The amount of javascript which is needed is potentially very, very small. The
+initial snippet which Rich provided was just this:
+
+```js
+$submenus = document.querySelectorAll("nav ul ul");
+$submenus.forEach(x => x.setAttribute("hidden", ""));
+$nav.removeEventListener("click", clickHandler);
+$nav.addEventListener("click", clickHandler);
+
+function clickHandler (e) {
+if (e.target instanceof HTMLButtonElement) {
+e.preventDefault();
+const menu = e.target.parentElement instanceof HTMLLIElement? e.target.nextElementSibling  : e.target.parentElement.nextElementSibling;
+menu.hidden = not(menu.hidden);
+e.target.setAttribute("aria-expanded", menu.hidden? "false" : "true");
+} // if
+} // clickHandler
+```
+
+If we choose HTML elements which bring native functionality (`button`, `a`, and
+header tags, for example) then we not only need less javascript but we are more
+likely to match functionality which users are already familiar with using. The
+only conceptual need we are solving is how to expand and collapse a submenu -
+everything else is already present.
+
+The styling rules required for this approach should likewise be minimal.
+
+#### Drawbacks of a bespoke approach
+
+The maxim "if you aren't using a framework, you are building one" applies here.
+While the amount of code required is small, it is still code for which we are
+responsible. That code will require us to commit to maintaining the knowledge of
+how it works and how to troubleshoot it, and to commit to having the bandwidth
+to respond to problems as they are reported.
+
+This bespoke approach is also not just javascript, but all the associated
+styling rules for the menu to be rendered in both a vertical and horizontal
+layout.
+
+In addition, because this code is so small, it has likely been written by some
+other group of developers - and it would be preferable to leverage their work
+rather than repeat it.
+
+Ultimately, though, the review which we've conducted of existing menu libraries
+has not identified such a suitable existing library at this time.
+
 
 ## Decision
 
@@ -141,6 +184,19 @@ If this proves sustainable, the feature will be considered for promotion to the
 overall style library in order to make the feature available to our other
 web applications.
 
+Our ultimate preference for an externally-defined navigation library will mean
+that we continue to monitor the development of both SmartMenus and Accessible
+Menu, with an eye toward adopting one should a suitable version be released.
+
+
 ## Consequences
 
-This section needs to be filled out.
+We will work from the prototypes and examples which Rich has provided and write
+our own bespoke solution for navigation menus in Omeka. This solution will:
+
+1. Make use of appropriate HTML tags as much as possible, with toggles for
+   triggering submenus separate from the navigation links - at any depth.
+1. Implement minimal javascript.
+1. Include styling rules for both a horizontal and vertical implementation,
+   while the markup and javascript for each will be the same.
+1. Be evaluated for promotion to our style guide.
