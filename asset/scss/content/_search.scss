@@ -3,9 +3,11 @@
 
     #search-form {
         float: right;
+        width: 33%;
 
         &.form-horizontal {
             .field-text {
+                min-width: inherit;
                 width: 75%;
             }
 
@@ -20,12 +22,7 @@
     .search {
         #search-form {
             float: inherit;
-
-            &.form-horizontal {
-                .field-text {
-                    min-width: inherit;
-                }
-            }
+            width: inherit;
         }
     }
 }
