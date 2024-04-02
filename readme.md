@@ -54,3 +54,9 @@ refreshed by running `make update-js`. Its materials can generally be found in
 `asset\js\smartmenus`.
 
 Please check the Makefile for the exact set of files to avoid changing.
+
+### Reference documentation
+
+The [Reference documentation](https://github.com/MITLibraries/mitlibraries-theme-omeka/tree/main/docs/reference) for this theme describes some more complex features
+provided by this theme. Please review those articles before working on any
+of the described features.

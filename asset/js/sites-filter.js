@@ -1,3 +1,10 @@
+/*
+This file relates to the filterable UI on the platform landing page. This
+feature is described in the theme documentation at:
+
+docs/reference/sites-filter.md
+*/
+
 const pluck = property => element => element[property];
 
 var filter_values = new Array();
