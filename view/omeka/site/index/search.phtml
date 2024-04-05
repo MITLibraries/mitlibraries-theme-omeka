@@ -5,14 +5,14 @@ $url = $this->plugin('url');
 $this->htmlElement('body')->appendAttribute('class', 'index search');
 ?>
 
-<?php echo $this->pageTitle(sprintf($translate('Search results for “%s”'), $query)); ?>
+<?php echo $this->pageTitle(sprintf($translate('Search results for: %s'), $query), $level=2); ?>
 
 <?php if (empty($results)) : ?>
     <p><?php echo $translate('No result found'); ?></p>
 <?php else : ?>
     <?php
     $resourceLabels = [
-        'site_pages' => 'Pages', // @translate
+        'site_pages' => 'Site pages', // @translate
         'items' => 'Items', // @translate
         'item_sets' => 'Item sets', // @translate
         'media' => 'Media', // @translate
