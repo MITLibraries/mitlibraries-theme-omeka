@@ -1,0 +1,59 @@
+.values-container table {
+    width: 100%;
+
+    caption {
+        caption-side: top;
+        text-align: left;
+        padding-bottom: 1rem;
+    }
+
+    tr {
+        td {
+            line-height: 1.2;
+            padding-bottom: 0.75rem; // This achieves separation between values within a field group.
+            padding-left: 1rem;
+            vertical-align: top;
+            word-break: break-word;
+        }
+
+        th {
+            text-align: left;
+            vertical-align: top;
+            width: 20%;
+        }
+
+        // This achieves separation between field groups.
+        &.property {
+            td,
+            th {
+                padding-top: 1.5rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $bp-screen-md) {
+    .values-container table {
+        tr {
+            display: block;
+            margin-bottom: 1em;
+
+            td {
+                display: block;
+                padding: unset;
+            }
+
+            th {
+                display: block;
+                width: unset;
+            }
+
+            &.property {
+                td,
+                th {
+                    padding-top: unset;
+                }
+            }
+        }
+    }
+}

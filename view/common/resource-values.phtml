@@ -21,7 +21,8 @@ $filterLocaleCallback = function ($value) use ($lang) {
 };
 ?>
 
-<dl>
+<table class="metadata">
+    <caption class="sr">Item metadata</caption>
 <?php
 foreach ($values as $term => $propertyData) :
     $propertyValues = $propertyData['values'];
@@ -40,15 +41,19 @@ foreach ($values as $term => $propertyData) :
     } else {
         $propertyTerm = null;
     }
+    $propertyRows = count($propertyValues);
     ?>
-    <div class="property">
-        <dt>
+    <tr class="property">
+        <th scope="row" rowspan="<?php echo $propertyRows; ?>">
         <?php echo $escape($propertyLabel); ?>
         <?php if ($propertyTerm !== null) : ?>
         <span class="field-term">(<?php echo $escape($propertyTerm); ?>)</span>
         <?php endif; ?>
-        </dt>
-        <?php foreach ($propertyValues as $value) : ?>
+        </th>
+        <?php foreach ($propertyValues as $key => $value) : ?>
+            <?php if (0!=$key) {?>
+                </tr><tr>
+            <?php } ?>
             <?php
             $valueType = $value->type();
             $valueLang = $value->lang();
@@ -61,7 +66,7 @@ foreach ($values as $term => $propertyData) :
                 $class[] = 'uri';
             }
             ?>
-        <dd class="<?php echo implode(' ', $class); ?>" lang="<?php echo $escape($valueLang); ?>">
+        <td class="<?php echo implode(' ', $class); ?>" <?php echo ($valueLang) ? "lang='{$escape($valueLang)}'" : ''; ?>>
             <?php if ($showLocale && $valueLang) : ?>
             <span class="language"><?php echo $valueLang; ?></span>
             <?php endif; ?>
@@ -78,8 +83,8 @@ foreach ($values as $term => $propertyData) :
                 </div>
             <?php endif; ?>
             <?php $this->trigger('view.show.value', ['value' => $value]); ?>
-        </dd>
+        </td>
         <?php endforeach; ?>
-    </div>
+    </tr>
 <?php endforeach; ?>
-</dl>
+</table>

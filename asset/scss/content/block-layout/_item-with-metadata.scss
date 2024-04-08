@@ -10,18 +10,21 @@
         padding: 1rem;
         text-align: left;
 
-        dl {
+        dl,
+        table {
             .property {
                 display: grid;
                 grid-template-columns: 1fr 2fr;
                 gap: 1rem;
                 margin-bottom: 1rem;
 
-                dt {
+                dt,
+                th {
                     grid-column: 1;
                 }
 
-                dd {
+                dd,
+                td {
                     grid-column: 2;
 
                     img {
