@@ -23,6 +23,11 @@
         #search-form {
             float: inherit;
             width: inherit;
+
+            input,
+            button {
+                font-size: 16px;
+            }
         }
     }
 }
