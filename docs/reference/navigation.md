@@ -25,9 +25,9 @@ Our navigation system supports the following features:
 * The navigation menu is usable by a variety of user agents and technologies,
   including people with a mouse (using hover states), a smartphone (using only
   touch or click commands), and a keyboard. Additionally, those using a keyboard
-  to navigate the site can do traverse the menu system without needing to listen
-  to every menu item sequentially, and can open and close submenus separately
-  from following the links to menu items.
+  to navigate the site can traverse the menu system without needing to listen to
+  every menu item sequentially, and can open and close submenus separately from
+  following the links to menu items.
 
 
 ## Dependency management and updates
@@ -39,6 +39,14 @@ This dependency is managed via a combination of Node and the theme Makefile.
 * The Makefile command `update-js` copies the needed library files from its
   default location within node_modules and into the theme's asset system.
 
+Both steps must be run in order to update the library if a new version is
+released:
+
+```bash
+$ npm update smartmenus
+$ make update-js
+```
+
 
 ## Invocation during a page load
 
@@ -46,7 +54,7 @@ This dependency is managed via a combination of Node and the theme Makefile.
 
 During a page load, the theme builds the navigation menu using the default
 markup defined by Omeka S. The `navigation-default.phtml` and 
-`navigation-vertical.phtml` templates in `view/common/` include thiscall, which
+`navigation-vertical.phtml` templates in `view/common/` include this call, which
 generates the default markup:
 
 ```php
@@ -92,7 +100,7 @@ This markup is then slightly decorated, and SmartMenus invoked, within the
 user's browser by the contents of `asset/js/tesseract.js`.
 
 The resulting markup used by the browser is considerably more detailed. For more
-informatino, consult the SmartMenus documentation.
+information, consult the SmartMenus documentation.
 
 ### Stylesheets
 
@@ -125,5 +133,5 @@ possible, the menu system will be updated soon to correct this problem.
 
 Alongside the navigation menu, there are other means available to site builders
 for users to navigate a set of content. Those include page blocks such as the
-Table of Contents and List of Pages, as well as pagination buttons which move
+[Table of Contents](https://omeka.org/s/docs/user-manual/sites/site_pages/#table-of-contents) and [List of Pages](https://omeka.org/s/docs/user-manual/sites/site_pages/#list-of-pages), as well as pagination buttons which move
 the user to next and previous pages in the navigation tree.

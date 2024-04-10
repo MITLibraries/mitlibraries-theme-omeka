@@ -25,13 +25,13 @@ compilation process which is managed by Gulp.
 
 ### Stylesheets
 
-This feature defines color varians through the accumulation of several different
-"layers":
+This feature defines color variants through the accumulation of several
+different "layers":
 
 1. A set of SCSS modules - in `asset/scss/variants` - which define all the theme
 elements which get colored by the variant system. Those modules do not directly
 assign colors, but instead declare an intermediate color. Examples of these
-intermedia color values are `color-menu-accent`, `color-text-hover`, and of
+intermediate color values are `color-menu-accent`, `color-text-hover`, and of
 course the basic `color` variable.
 
    The set of variant modules _should_ be similar to the set of modules defined

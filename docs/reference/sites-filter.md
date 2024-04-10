@@ -25,8 +25,8 @@ homepage. These records are defined below.
 ### Exhibit records
 
 The first, and most complex, part of this feature is the maintenance of an item
-set holding records for every exhibit on the platform. These records should have
-the following information:
+set holding records for every exhibit on the platform. These records are
+maintained by platform staff, and should have the following information:
 
 * Title (text - will be visible on screen)
 * Description (text - will be used as alt attribute for image)
@@ -44,8 +44,8 @@ from appearing in the filterable UI.
 ### Theme configuation
 
 With the exhibit records created and placed in an Item Set, the theme can now be
-configured to display the filterable UI via two entries on the theme settings
-form:
+configured by platform staff to display the filterable UI via two entries on the
+theme settings form:
 
 * Sites item set - this is the ID value of the Item Set which contains the
   exhibit records.
@@ -63,9 +63,10 @@ The page template (`view/omeka/site/page/show.phtml`), at the bottom of the
 content area, loads the partial `common/sites-filter.phtml`. The filterable UI
 is entirely run from this partial.
 
-The partial checks for the two theme settings values. If both have been set, and
-the current page matches the specified slug, then the feature javascript and
-styles are loaded and invoked.
+The partial checks for the two theme settings values (Sites item set and the
+Page slug - see above section for details). If both have been set, and the
+current page matches the specified slug, then the feature javascript and styles
+are loaded and invoked.
 
 Invoking the feature is done by calling the `LoadItemSet` function, passing the
 ID value of the Item Set defined above. From there, the javascript loads the
