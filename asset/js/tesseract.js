@@ -1,3 +1,10 @@
+/*
+This file relates to the site navigation provided by the theme. This
+feature is described in the theme documentation at:
+
+docs/reference/navigation.md
+*/
+
 $(function() {
     // Only the vertical configuration gets this class.
     $('body.nav-vertical #navbar-container ul.navigation').addClass('sm-vertical');
