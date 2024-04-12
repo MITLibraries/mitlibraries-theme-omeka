@@ -1,0 +1,29 @@
+<?php
+$escape = $this->plugin('escapeHtml');
+$thumbnail = $this->plugin('thumbnail');
+$translate = $this->plugin('translate');
+
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
+$valueLang = $filterLocale ? [$lang, ''] : null;
+
+$headingTerm = $headingTerm ? $headingTerm : $this->siteSetting('browse_heading_property_term');
+$bodyTerm = $this->siteSetting('browse_body_property_term');
+
+$resource = isset($resource) ? $resource : null;
+
+$heading = $headingTerm ? $resource->value($headingTerm, ['default' => $translate('[Untitled]'), 'lang' => $valueLang]) : $resource->displayTitle(null, $valueLang);
+$body = $bodyTerm ? $resource->value($bodyTerm, ['lang' => $valueLang]) : $resource->displayDescription(null, $valueLang);
+?>
+<li class="item resource">
+    <?php
+    $linkContent = sprintf(
+        '<div class="resource-info"><div class="resource-name">%s</div><div class="resource-class">%s</div><div class="description">%s</div></div><div class="resource-image">%s</div>',
+        $escape($heading),
+        $this->ResourceClasses($resource),
+        $escape($body),
+        $thumbnail($resource, 'medium')
+    );
+    echo $resource->linkRaw($linkContent, null, ['class' => 'resource-link']);
+    ?>
+</li>

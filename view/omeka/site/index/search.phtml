@@ -3,20 +3,16 @@ $translate = $this->plugin('translate');
 $hyperlink = $this->plugin('hyperlink');
 $url = $this->plugin('url');
 $this->htmlElement('body')->appendAttribute('class', 'index search');
-
-$filterLocale = (bool) $this->siteSetting('filter_locale_values');
-$lang = $this->lang();
-$valueLang = $filterLocale ? [$lang, ''] : null;
 ?>
 
-<?php echo $this->pageTitle(sprintf($translate('Search results for “%s”'), $query)); ?>
+<?php echo $this->pageTitle(sprintf($translate('Search results for: %s'), $query), $level=2); ?>
 
 <?php if (empty($results)) : ?>
     <p><?php echo $translate('No result found'); ?></p>
 <?php else : ?>
     <?php
     $resourceLabels = [
-        'site_pages' => 'Pages', // @translate
+        'site_pages' => 'Site pages', // @translate
         'items' => 'Items', // @translate
         'item_sets' => 'Item sets', // @translate
         'media' => 'Media', // @translate
@@ -31,21 +27,26 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
     <?php foreach ($results as $resourceName => $result) : ?>
 <div class="<?php echo $resourceName; ?> results">
     <h2><?php echo $translate($resourceLabels[$resourceName]); ?></h2>
-    <ul>
+    <ul class="resource-list list">
         <?php foreach ($result['resources'] as $resource) : ?>
-            <?php $hasThumbnail = $resource->primaryMedia(); ?>
-        <li>
-            <?php if (!$hasThumbnail) : ?>
-                <?php if ($resourceName === 'site_pages') {
-                    echo $resource->link($resource->title());
-                } else {
-                    echo $resource->link($resource->displayTitle(null, $valueLang));
-                }
-                ?>
-            <?php else : ?>
-                <?php echo $resource->linkPretty('medium', null, null, null, $valueLang); ?>
-            <?php endif; ?>
-        </li>
+            <?php if ('site_pages' === $resourceName) { ?>
+                <li class="page resource">
+                    <?php
+                    $linkPage = sprintf(
+                        '<div class="resource-info"><div class="resource-name">%s</div></div>',
+                        $resource->title()
+                    );
+                    echo $resource->linkRaw($linkPage, null, ['class' => 'resource-link']);
+                    ?>
+                </li>
+            <?php } else {
+                echo $this->partial(
+                    'common/resource-list-item',
+                    [
+                        'resource' => $resource,
+                    ]
+                );
+            } ?>
         <?php endforeach; ?>
     </ul>
         <?php if ($result['total'] > 10) : ?>
