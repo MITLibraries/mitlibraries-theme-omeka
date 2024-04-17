@@ -7,10 +7,10 @@ built.
 
 let i = 1;
 
-function NewToggle() {
+function NewToggle(visible = false) {
     const toggle = document.createElement('button');
     toggle.classList.add('toggle');
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-expanded', visible? 'true' : 'false');
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-labelledby', '');
     toggle.addEventListener("click", Handler);
@@ -20,8 +20,8 @@ function NewToggle() {
 function Decorate(container) {
     let menus = container.getElementsByTagName('ul');
     $(menus).each(function(index, menu) {
-        
-        thing = NewToggle();
+        console.log(index);
+        thing = NewToggle(false);
         menu.parentNode.insertBefore(thing, menu);
         menu.setAttribute("hidden", "");
     });
@@ -30,9 +30,8 @@ function Decorate(container) {
 function Handler (e) {
     if (!(e.target instanceof HTMLButtonElement)) return;
 
-    console.log('Handling a click');
     e.preventDefault();
-    const menu = e.target.parentElement instanceof HTMLLIElement? e.target.nextElementSibling : e.target.parentElement.nextElementSibling;
+    const menu = e.target.nextElementSibling;
     menu.hidden = Not(menu.hidden);
     e.target.setAttribute("aria-expanded", menu.hidden? "false" : "true");
 }
