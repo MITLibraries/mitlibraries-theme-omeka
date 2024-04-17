@@ -6,5 +6,6 @@ docs/reference/navigation.md
 */
 
 $(function() {
-    console.log('This is where the menu would initialize');
+    let container = document.getElementById('navbar-container');
+    Decorate(container);
 });
