@@ -22,3 +22,9 @@
         }
     }
 }
+
+@media only screen and (min-width: $bp-screen-md) {
+    #navbar-container > nav > button {
+        display: none;
+    }
+}
