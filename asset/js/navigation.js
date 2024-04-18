@@ -71,7 +71,23 @@ function CatchEscape(e) {
     if (!(e.target.parentNode.parentNode instanceof HTMLUListElement)) {
         return;
     }
-    ToggleMenu(e.target.parentNode.parentNode);
+
+    Initialize(e.target.parentNode.parentNode);
+}
+
+// The initalize function will take a container and set all of the lists inside
+// to the initial state (collapsed).
+function Initialize(container) {
+    let menus = container.getElementsByTagName('ul');
+    $(menus).each(function(index, menu) {
+        menu.setAttribute("hidden", "");
+        menu.previousElementSibling.setAttribute("aria-expanded", "false");
+    });
+    // As long as we aren't at the top level, close the current container too.
+    if (!(container.classList.contains("navigation"))) {
+        container.setAttribute("hidden", "");
+        container.previousElementSibling.setAttribute("aria-expanded", "false");
+    }
 }
 
 // The ToggleMenu function is how the navigation functions. It hides or shows
