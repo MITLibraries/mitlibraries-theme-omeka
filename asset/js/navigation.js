@@ -7,33 +7,61 @@ built.
 
 let i = 1;
 
-function NewToggle(visible = false) {
+function NewToggle(labelValue) {
     const toggle = document.createElement('button');
+    const toggleContent = document.createTextNode("+");
+    toggle.appendChild(toggleContent);
     toggle.classList.add('toggle');
-    toggle.setAttribute('aria-expanded', visible? 'true' : 'false');
+    toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-haspopup', 'true');
-    toggle.setAttribute('aria-labelledby', '');
-    toggle.addEventListener("click", Handler);
+    toggle.setAttribute('aria-labelledby', labelValue);
+    toggle.addEventListener("click", CatchButton);
+    toggle.addEventListener("mouseover", CatchButton);
     return toggle;
 }
 
 function Decorate(container) {
     let menus = container.getElementsByTagName('ul');
     $(menus).each(function(index, menu) {
-        console.log(index);
-        thing = NewToggle(false);
+        labelValue = '';
+        if (menu.previousElementSibling) {
+            labelValue = 'item-' + i;
+            menu.previousElementSibling.setAttribute('id', labelValue);
+        }
+        thing = NewToggle(labelValue);
         menu.parentNode.insertBefore(thing, menu);
         menu.setAttribute("hidden", "");
+        i++;
     });
+    document.addEventListener("keyup", CatchEscape);
 }
 
-function Handler (e) {
+function CatchButton (e) {
     if (!(e.target instanceof HTMLButtonElement)) return;
 
     e.preventDefault();
     const menu = e.target.nextElementSibling;
-    menu.hidden = Not(menu.hidden);
+    ToggleMenu(menu);
     e.target.setAttribute("aria-expanded", menu.hidden? "false" : "true");
+}
+
+function CatchEscape(e) {
+    if (!(e.keyCode === 27)) return;
+
+    // e.target is the element that has focus. Check if that is in
+    // a menu, and close it if so.
+    // 
+    if (!(e.target.parentNode.parentNode instanceof HTMLUListElement)) {
+        return;
+    }
+    ToggleMenu(e.target.parentNode.parentNode);
+}
+
+// If we need a CatchHover function, that would implement a delay for precise
+// mouse control, it would be here.
+
+function ToggleMenu(el) {
+    el.hidden = Not(el.hidden);
 }
 
 function Not (x) { return !x; }
