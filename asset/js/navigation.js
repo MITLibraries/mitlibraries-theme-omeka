@@ -10,12 +10,13 @@ let i = 1;
 // This function defines the button element which acts as the toggle for showing
 // and hiding a sub-menu. It includes the creation of any ARIA attributes needed
 // as well as any event listeners.
-function NewToggle(labelValue) {
+function NewToggle(visibility, labelValue) {
+    console.log('New toggle would be visibe? ' + visibility);
     const toggle = document.createElement('button');
     const toggleContent = document.createTextNode("+");
     toggle.appendChild(toggleContent);
     toggle.classList.add('toggle');
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-expanded', visibility);
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-labelledby', labelValue);
     toggle.addEventListener("click", CatchButton);
@@ -36,9 +37,12 @@ function Decorate(container) {
             labelValue = 'item-' + i;
             menu.previousElementSibling.setAttribute('id', labelValue);
         }
-        thing = NewToggle(labelValue);
+        let vis = index ? false : true;
+        thing = NewToggle(vis, labelValue);
         menu.parentNode.insertBefore(thing, menu);
-        menu.setAttribute("hidden", "");
+        if (!vis) {
+            menu.setAttribute("hidden", "");
+        }
         i++;
     });
     container.addEventListener("keyup", CatchEscape);
