@@ -7,6 +7,9 @@ built.
 
 let i = 1;
 
+// This function defines the button element which acts as the toggle for showing
+// and hiding a sub-menu. It includes the creation of any ARIA attributes needed
+// as well as any event listeners.
 function NewToggle(labelValue) {
     const toggle = document.createElement('button');
     const toggleContent = document.createTextNode("+");
@@ -19,6 +22,12 @@ function NewToggle(labelValue) {
     return toggle;
 }
 
+// This is the primary function called to make the entire menu happen. It takes
+// in the DOM element containing the navigation, scans for _all_ lists, and then
+// decorates them. That decoration adds the toggle elements to show/hide sub-
+// menus, as well as the event listeners which the user interacts with.
+// 
+// When this function finishes, the menu is ready to use.
 function Decorate(container) {
     let menus = container.getElementsByTagName('ul');
     $(menus).each(function(index, menu) {
@@ -35,6 +44,8 @@ function Decorate(container) {
     container.addEventListener("keyup", CatchEscape);
 }
 
+// This is an event handler that receives user input when they click on a button
+// and updates the relevant menu.
 function CatchButton (e) {
     if (!(e.target instanceof HTMLButtonElement)) return;
 
@@ -43,24 +54,33 @@ function CatchButton (e) {
     ToggleMenu(menu);
 }
 
+// This is an event handler that receives keyup events, checks whether it was
+// the escape key, and then closes the menu which has focus. The event handler
+// should have been attached only to the navigation menu container.
 function CatchEscape(e) {
     if (!(e.keyCode === 27)) return;
 
     // e.target is the element that has focus. Check if that is in
-    // a menu, and close it if so.
-    // 
+    // a menu, and close it if so. Because of where the event listener is
+    // attached, this guard clause should never be activated - the only targets
+    // which get focus should be links in the nav menu.
     if (!(e.target.parentNode.parentNode instanceof HTMLUListElement)) {
         return;
     }
     ToggleMenu(e.target.parentNode.parentNode);
 }
 
+// The ToggleMenu function is how the navigation functions. It hides or shows
+// passed menu element, and updates the ARIA attributes. If the toggle needs to
+// change its presentation, that would happen here.
 function ToggleMenu(el) {
     el.hidden = Not(el.hidden);
     let toggle = el.previousElementSibling;
     toggle.setAttribute("aria-expanded", el.hidden? "false" : "true");
 }
 
+// This is a helper function called by ToggleMenu, which handles switching the
+// hidden state of the menu being shown / hidden.
 function Not (x) { return !x; }
 
 /*
