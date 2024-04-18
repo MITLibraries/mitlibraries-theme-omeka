@@ -11,7 +11,6 @@ let i = 1;
 // and hiding a sub-menu. It includes the creation of any ARIA attributes needed
 // as well as any event listeners.
 function NewToggle(visibility, labelValue) {
-    console.log('New toggle would be visibe? ' + visibility);
     const toggle = document.createElement('button');
     const toggleContent = document.createTextNode("+");
     toggle.appendChild(toggleContent);
