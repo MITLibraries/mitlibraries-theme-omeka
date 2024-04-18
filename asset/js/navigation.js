@@ -32,7 +32,7 @@ function Decorate(container) {
         menu.setAttribute("hidden", "");
         i++;
     });
-    document.addEventListener("keyup", CatchEscape);
+    container.addEventListener("keyup", CatchEscape);
 }
 
 function CatchButton (e) {
