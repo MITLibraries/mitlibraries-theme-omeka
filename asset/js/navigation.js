@@ -16,7 +16,6 @@ function NewToggle(labelValue) {
     toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-labelledby', labelValue);
     toggle.addEventListener("click", CatchButton);
-    toggle.addEventListener("mouseover", CatchButton);
     return toggle;
 }
 
@@ -42,7 +41,6 @@ function CatchButton (e) {
     e.preventDefault();
     const menu = e.target.nextElementSibling;
     ToggleMenu(menu);
-    e.target.setAttribute("aria-expanded", menu.hidden? "false" : "true");
 }
 
 function CatchEscape(e) {
@@ -57,11 +55,10 @@ function CatchEscape(e) {
     ToggleMenu(e.target.parentNode.parentNode);
 }
 
-// If we need a CatchHover function, that would implement a delay for precise
-// mouse control, it would be here.
-
 function ToggleMenu(el) {
     el.hidden = Not(el.hidden);
+    let toggle = el.previousElementSibling;
+    toggle.setAttribute("aria-expanded", el.hidden? "false" : "true");
 }
 
 function Not (x) { return !x; }
