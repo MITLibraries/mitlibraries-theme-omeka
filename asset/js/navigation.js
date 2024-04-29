@@ -12,8 +12,6 @@ let i = 1;
 // as well as any event listeners.
 function NewToggle(visibility, labelValue) {
     const toggle = document.createElement('button');
-    const toggleContent = document.createTextNode("+");
-    toggle.appendChild(toggleContent);
     toggle.classList.add('toggle');
     toggle.setAttribute('aria-expanded', visibility);
     toggle.setAttribute('aria-haspopup', 'true');

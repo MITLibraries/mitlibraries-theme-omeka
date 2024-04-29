@@ -1,5 +1,42 @@
 #navbar-container {
-    ul li ul {
-        border-color: $color-menu-accent;
+    button {
+        &:focus,
+        &:hover {
+            background-color: $color-menu-accent;
+            border-color: $color-menu-accent;
+            color: $color-menu-accent-text;
+        }
+    }
+
+    ul.navigation {
+        border-bottom: 2px solid $color-menu-accent;
+    }
+
+    ul li {
+        a {
+            &:focus,
+            &:hover {
+                background-color: $color-menu-accent;
+                color: $color-menu-accent-text;
+            }
+        }
+
+        ul {
+            background-color: $color-menu-background;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $color-menugroup-background;
+        }
+    }
+}
+
+body.nav-vertical {
+    #navbar-container {
+        ul.navigation {
+            border-right: 2px solid $color-menu-accent;
+            border-bottom: none;
+        }
     }
 }

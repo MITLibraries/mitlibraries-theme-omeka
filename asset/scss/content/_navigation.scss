@@ -1,6 +1,22 @@
+// Navigation rules for all screens, i.e. mobile-first styles
 #navbar-container {
     button {
-        vertical-align: middle;
+        border: none;
+        background-color: transparent;
+        display: inline-block;
+        height: 2.5rem;
+        margin: 0 5px;
+        padding: 5px;
+        vertical-align: baseline;
+        width: 3rem;
+
+        &::before {
+            content: "\ff0b";
+        }
+    }
+
+    & > nav > button::before {
+        content: "\2630"
     }
 
     ul {
@@ -9,22 +25,76 @@
         padding: 0;
 
         li {
+            display: block;
             margin: 0;
             padding: 0;
 
             a {
-                padding: 0.5rem;
+                display: inline-block;
+                font-size: 1.8rem; // Font size cannot be odd?
+                padding: 0.5rem 1rem;
+                text-decoration: none;
+                width: calc(100% - 4.5rem);
+
+                &:only-child {
+                    width: 100%;
+                }
             }
 
-            ul {
-                border-left: 0.5rem solid $black;
+            &.active>a {
+                font-weight: bold;
             }
         }
     }
 }
 
+// Navigation rules for non-mobile
 @media only screen and (min-width: $bp-screen-md) {
-    #navbar-container > nav > button {
-        display: none;
+    // Default rules (horizontal menu)
+    #navbar-container {
+        button {
+            &::before {
+                content: "\25bc";
+            }
+        }
+
+        & > nav > button {
+            display: none;
+        }
+
+        ul {
+            li {
+                display: inline-block;
+
+                a {
+                    width: inherit;
+                }
+            }
+        }
+    }
+
+    // Alternate rules (vertical menu)
+    body.nav-vertical {
+        #navbar-container {
+            button {
+                &::before {
+                    content: "\25b6";
+                }
+            }
+    
+            ul {
+                li {
+                    display: block;
+
+                    a {
+                        width: calc(100% - 4.5rem);
+
+                        &:only-child {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
