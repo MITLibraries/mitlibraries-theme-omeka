@@ -94,6 +94,26 @@ function ToggleMenu(el) {
     el.hidden = Not(el.hidden);
     let toggle = el.previousElementSibling;
     toggle.setAttribute("aria-expanded", el.hidden? "false" : "true");
+
+    // If certain conditions are met, we also assign left and top margin to
+    // position the newly-visible menu.
+
+    // Mobile screens do not get this adjustment.
+    if (window.innerWidth < 768) {
+        return;
+    }
+
+    // For horizontal menus, the top level menu does not get this adjustment.
+    if (!document.body.classList.contains('nav-vertical') && el.parentNode.parentNode.classList.contains('navigation')) {
+        console.log('Top of horizontal menu');
+        return;
+    }
+    
+    console.log('Assigning left and top margin of submenu');
+    let parentWidth = el.parentNode.offsetWidth;
+    let parentHeight = el.parentNode.offsetHeight;
+    el.style.marginLeft = parentWidth + "px";
+    el.style.marginTop = -1 * parentHeight + "px";
 }
 
 // This is a helper function called by ToggleMenu, which handles switching the

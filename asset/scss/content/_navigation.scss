@@ -69,6 +69,23 @@
                 a {
                     width: inherit;
                 }
+
+                // Submenu styling (should be the same for both horizontal and
+                // vertial menus).
+                ul {
+                    min-width: 20rem;
+                    max-width: 30rem;
+                    position: absolute;
+                    z-index: 999;
+
+                    li {
+                        display: block;
+
+                        button::before {
+                            content: "\25b6";
+                        }
+                    }
+                }
             }
         }
     }
