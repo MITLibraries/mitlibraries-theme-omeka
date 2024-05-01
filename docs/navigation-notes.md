@@ -46,7 +46,7 @@ Does this need an overview?
 
 ![image](subnav-vertical-styles.png)
 
-- [ ] Need conditional logic to open a submenu toward the center of the screen (not always to the right)
+- ~~Need conditional logic to open a submenu toward the center of the screen (not always to the right)~~
 
 ![image](subnav-screen-edge.png)
 

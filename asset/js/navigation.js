@@ -105,15 +105,28 @@ function ToggleMenu(el) {
 
     // For horizontal menus, the top level menu does not get this adjustment.
     if (!document.body.classList.contains('nav-vertical') && el.parentNode.parentNode.classList.contains('navigation')) {
-        console.log('Top of horizontal menu');
         return;
     }
     
-    console.log('Assigning left and top margin of submenu');
-    let parentWidth = el.parentNode.offsetWidth;
-    let parentHeight = el.parentNode.offsetHeight;
-    el.style.marginLeft = parentWidth + "px";
+    // Assign position of submenu
+    const parentHeight = el.parentNode.offsetHeight;
     el.style.marginTop = -1 * parentHeight + "px";
+    const parentWidth = el.parentNode.offsetWidth;
+    if ("left" === WhichSide(el.parentNode)) {
+        el.style.marginLeft = parentWidth + "px";
+    } else {
+        el.style.marginLeft = -1 * el.offsetWidth + "px";
+    }
+}
+
+// The WhichSide function takes in an HTML Element, and returns a string value
+// of "left" or "right" depending on which side of the screen it is closest to.
+function WhichSide(el) {
+    const elPosition = el.getBoundingClientRect();
+    const leftSpace = elPosition.left;
+    const rightSpace = window.innerWidth - elPosition.right;
+
+    return rightSpace < leftSpace ? 'right' : 'left';
 }
 
 // This is a helper function called by ToggleMenu, which handles switching the
