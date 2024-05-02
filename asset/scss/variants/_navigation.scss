@@ -9,6 +9,7 @@
     }
 
     ul.navigation {
+        background: $color-menu-background;
         border-bottom: 2px solid $color-menu-accent;
     }
 
@@ -32,11 +33,15 @@
     }
 }
 
-body.nav-vertical {
-    #navbar-container {
-        ul.navigation {
-            border-right: 2px solid $color-menu-accent;
-            border-bottom: none;
+// Navigation rules for non-mobile
+@media only screen and (min-width: $bp-screen-md) {
+    body.nav-vertical {
+        #navbar-container {
+            ul.navigation {
+                background: unset;
+                border-right: 2px solid $color-menu-accent;
+                border-bottom: none;
+            }
         }
     }
 }

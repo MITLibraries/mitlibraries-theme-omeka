@@ -51,7 +51,7 @@ Does this need an overview?
 
 ![image](subnav-mobile-styles.png)
 
-- [ ] Styling is not consistent for mobile displays of horizontal and vertical menus (compare below image with one above) **Use the horizontal styling (shaded background, bottom border, maybe with box shadow)**
+- ~~Styling is not consistent for mobile displays of horizontal and vertical menus (compare below image with one above) **Use the horizontal styling (shaded background, bottom border, maybe with box shadow)**~~
 
 ![image](subnav-vertical-styles.png)
 
