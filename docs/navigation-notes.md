@@ -10,13 +10,16 @@ Does this need an overview?
 
 - ~~Does hamburger need to be more prominent? With a border?~~
 
+- [ ] Hamburger on hover / focus should switch to white marks, not black
+      (This will require rebuilding the SVG file we're using for the hamburger icon, which currently uses explicit coloring in an inscrutable format.)
+
 ### Toggle icons
 
 - [ ] Can the `button` element take up the full space available? 
 
 ![image](toggle-sizing.png)
 
-- [ ] Is the `button` element big enough on mobile screens?
+- [ ] Is the `button` element big enough on mobile screens? Should it be a carat instead?
 
 ### Compound list items
 
@@ -30,11 +33,17 @@ Does this need an overview?
 
 - [ ] Flash of competing styles when menugroup shading is applied - could this be scoped only to actually-compound elements?
 
+- [ ] Can the carat be moved closer to the menu text? (CSS rules only to change)
+
 ### Interaction
 
 - [ ] Menus currently stay open until closed, allowing multiple open menus (and deeper menus to remember that they are opened). Instead, menus should automatically close when not needed, showing in all cases only the most minimal set of visible elements.
 
 - [ ] Need to explicitly set focus to the parent toggle when closing a menu via the escape key (i.e. focus on what you effectively just clicked on)
+
+- [ ] Menu offsets should be re-calculated as windows re-size?
+
+- [ ] Menus should collapse when focus leaves the menu element
 
 ### Layouts
 
@@ -42,7 +51,7 @@ Does this need an overview?
 
 ![image](subnav-mobile-styles.png)
 
-- [ ] Styling is not consistent for mobile displays of horizontal and vertical menus (compare below image with one above)
+- [ ] Styling is not consistent for mobile displays of horizontal and vertical menus (compare below image with one above) **Use the horizontal styling (shaded background, bottom border, maybe with box shadow)**
 
 ![image](subnav-vertical-styles.png)
 
@@ -53,6 +62,10 @@ Does this need an overview?
 - [ ] Do we worry about spacing between menu elements that is never shaded? (whitespace bewtween `li` elements)
 
 - [ ] Do we worry about _very_ long menus (see [the list of students in the South Asia exhibit](https://digital-exhibits.libraries.mit.edu/s/south-asia-and-mit/page/students)) being taller than the screen height?
+
+- [ ] Mobile layout of vertically-oriented menus should come before the search bar, not after.
+
+- [ ] Re-check font sizes between browsers on horizontal menu, and look for gaps above/below.
 
 ---
 
