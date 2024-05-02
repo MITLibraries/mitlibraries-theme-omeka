@@ -6,9 +6,9 @@ Does this need an overview?
 
 ### Hamburger icon
 
-- [ ] Hamburger icon doesn't do anything for initial page load - menu initializes expanded. **How can the mobile menu be hidden by default, but visible for desktop users?**
+- ~~Hamburger icon doesn't do anything for initial page load - menu initializes expanded.~~
 
-- [ ] Does hamburger need to be more prominent? With a border?
+- ~~Does hamburger need to be more prominent? With a border?~~
 
 ### Toggle icons
 

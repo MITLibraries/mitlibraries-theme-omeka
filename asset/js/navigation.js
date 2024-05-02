@@ -43,6 +43,10 @@ function Decorate(container) {
         i++;
     });
     container.addEventListener("keyup", CatchEscape);
+    // For mobile screens, we toggle the navigation to be hidden by default.
+    if (window.innerWidth < 768) {
+        ToggleMenu(menus[0]);
+    }
 }
 
 // This is an event handler that receives user input when they click on a button
