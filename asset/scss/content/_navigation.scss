@@ -72,6 +72,8 @@ body.nav-vertical {
     // Default rules (horizontal menu)
     #navbar-container {
         button {
+            margin: 0 0 0 -5px;
+
             &::before {
                 content: "\25bc";
             }
@@ -84,8 +86,10 @@ body.nav-vertical {
         ul {
             li {
                 display: inline-block;
+                margin: 0 1rem;
 
                 a {
+                    padding: 0.5rem;
                     width: inherit;
                 }
 
@@ -113,6 +117,8 @@ body.nav-vertical {
     body.nav-vertical {
         #navbar-container {
             button {
+                margin: 0 5px;
+
                 &::before {
                     content: "\25b6";
                 }
@@ -125,8 +131,10 @@ body.nav-vertical {
             ul {
                 li {
                     display: block;
+                    margin: 0;
 
                     a {
+                        padding: 0.5rem 1rem;
                         width: calc(100% - 4.5rem);
 
                         &:only-child {

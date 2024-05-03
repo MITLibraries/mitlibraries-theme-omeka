@@ -32,7 +32,7 @@ Does this need an overview?
 
 - [ ] Flash of competing styles when menugroup shading is applied - could this be scoped only to actually-compound elements?
 
-- [ ] Can the carat be moved closer to the menu text? (CSS rules only to change)
+- ~~Can the carat be moved closer to the menu text? (CSS rules only to change)~~
 
 ### Interaction
 
