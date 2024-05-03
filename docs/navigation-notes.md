@@ -22,9 +22,7 @@ Does this need an overview?
 
 ### Compound list items
 
-- [ ] Prevent the `button` element from wrapping below a menu item (see ["Theme-provided markup features"](https://mitlibraries-stage.omeka.net/s/theme-playground/page/home) at this link - compare to ["Explore the collection"](https://mitlibraries-stage.omeka.net/s/vail/page/home) link here)
-
-![image](subnav-wrapping.png)
+- ~~Prevent the `button` element from wrapping below a menu item~~
 
 - [ ] The menugroup shading (on the `li` element) is shown only for mouse interactions (the `:hover` pseudoselector). Can this be extended to keyboard users and other users?
 

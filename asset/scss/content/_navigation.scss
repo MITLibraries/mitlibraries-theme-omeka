@@ -108,6 +108,11 @@ body.nav-vertical {
 
                     li {
                         display: block;
+                        margin: 0;
+
+                        a {
+                            width: calc(100% - 4.5rem);
+                        }
 
                         button::before {
                             content: "\25b6";
