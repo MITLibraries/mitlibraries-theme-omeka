@@ -16,7 +16,7 @@ Some items may get triaged into the lower sections of the document, and either n
 
 ### Toggle icons
 
-- [ ] Is the `button` element big enough on mobile screens? Should it be a carat instead?
+- ~~Is the `button` element big enough on mobile screens? Should it be a carat instead?~~
 
 ### Compound list items
 
