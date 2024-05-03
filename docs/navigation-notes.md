@@ -10,8 +10,7 @@ Does this need an overview?
 
 - ~~Does hamburger need to be more prominent? With a border?~~
 
-- [ ] Hamburger on hover / focus should switch to white marks, not black
-      (This will require rebuilding the SVG file we're using for the hamburger icon, which currently uses explicit coloring in an inscrutable format.)
+- ~~Hamburger on hover / focus should switch to white marks, not black.~~
 
 ### Toggle icons
 
