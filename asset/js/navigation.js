@@ -61,19 +61,24 @@ function CatchButton (e) {
 
 // This is an event handler that receives keyup events, checks whether it was
 // the escape key, and then closes the menu which has focus. The event handler
-// should have been attached only to the navigation menu container.
+// is attached to the navigation menu container during the Decorate function.
 function CatchEscape(e) {
     if (!(e.keyCode === 27)) return;
 
     // e.target is the element that has focus. Check if that is in
     // a menu, and close it if so. Because of where the event listener is
-    // attached, this guard clause should never be activated - the only targets
-    // which get focus should be links in the nav menu.
+    // attached (on the navigation menu container), this guard clause _should_
+    // never be activated - the only targets which get focus should be links in
+    // the nav menu.
     if (!(e.target.parentNode.parentNode instanceof HTMLUListElement)) {
         return;
     }
 
     Initialize(e.target.parentNode.parentNode);
+
+    // Set the browser focus on the toggle which has effectively just been
+    // triggered.
+    e.target.parentNode.parentNode.previousElementSibling.focus();
 }
 
 // The initalize function will take a container and set all of the lists inside

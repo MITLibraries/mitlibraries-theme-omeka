@@ -32,7 +32,7 @@ Some items may get triaged into the lower sections of the document, and either n
 
 - [ ] Menus currently stay open until closed, allowing multiple open menus (and deeper menus to remember that they are opened). Instead, menus should automatically close when not needed, showing in all cases only the most minimal set of visible elements.
 
-- [ ] Need to explicitly set focus to the parent toggle when closing a menu via the escape key (i.e. focus on what you effectively just clicked on)
+- ~~Need to explicitly set focus to the parent toggle when closing a menu via the escape key (i.e. focus on what you effectively just clicked on)~~
 
 - [ ] Menu offsets should be re-calculated as windows re-size?
 
