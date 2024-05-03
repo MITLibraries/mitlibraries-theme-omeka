@@ -46,7 +46,7 @@ Does this need an overview?
 
 ### Layouts
 
-- [ ] Mobile rendering does not indicate what elements are in a sub-menu, so hierarchy awareness is mostly impossible.
+- [ ] Mobile rendering does not indicate what elements are in a sub-menu, so hierarchy awareness is mostly impossible. **Trying to use indenting for this**
 
 ![image](subnav-mobile-styles.png)
 

@@ -52,6 +52,10 @@
                 }
             }
 
+            ul {
+                padding-left: 1rem;
+            }
+
             &.active>a {
                 font-weight: bold;
             }
@@ -98,6 +102,7 @@ body.nav-vertical {
                 ul {
                     min-width: 20rem;
                     max-width: 30rem;
+                    padding-left: 0;
                     position: absolute;
                     z-index: 999;
 
