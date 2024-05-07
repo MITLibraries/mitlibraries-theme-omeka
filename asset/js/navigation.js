@@ -43,8 +43,9 @@ function Decorate(container) {
         i++;
     });
     container.addEventListener("keyup", CatchEscape);
+    document.addEventListener("click", Reset);
     // For mobile screens, we toggle the navigation to be hidden by default.
-    if (window.innerWidth < 768) {
+    if (IsMobile()) {
         ToggleMenu(menus[0]);
     }
 }
@@ -55,8 +56,23 @@ function CatchButton (e) {
     if (!(e.target instanceof HTMLButtonElement)) return;
 
     e.preventDefault();
+
+    // Toggle the menu element next to the button which was clicked.
     const menu = e.target.nextElementSibling;
     ToggleMenu(menu);
+
+    // For mobile users, the interaction ends here.
+    if (IsMobile()) {
+        return;
+    }
+    // For desktop users, we then close all other open menus, because having
+    // multiple open menus can overlap. Get the set of visible submenus, remove
+    // the one the user just clicked on, and close everything else.
+    let sibs = Array.from(e.target.parentNode.parentNode.getElementsByTagName('button'));
+    sibs.splice(sibs.indexOf(e.target), 1);
+    for (i=0;i<sibs.length;i++) {
+        Initialize(sibs[i].parentNode);
+    }
 }
 
 // This is an event handler that receives keyup events, checks whether it was
@@ -96,6 +112,24 @@ function Initialize(container) {
     }
 }
 
+// This function would catch click elements anywhere, filter out those meant to
+// do something specific with the menu, and close all submenus for the remaining
+// events. This is meant to implement the "click anywhere to close the menu"
+// functionality.
+function Reset(e) {
+    // Mobile users do not need this behavior.
+    if (IsMobile()) {
+        return;
+    }
+    // For desktop users, we collapse all open menus when the user clicks
+    // anywhere.
+    let navbar = document.getElementById('navbar-container').getElementsByClassName('navigation')[0];
+    if (navbar.contains(e.target) && navbar !== e.target) {
+        return;
+    }
+    Initialize(navbar);
+}
+
 // The ToggleMenu function is how the navigation functions. It hides or shows
 // passed menu element, and updates the ARIA attributes. If the toggle needs to
 // change its presentation, that would happen here.
@@ -108,7 +142,7 @@ function ToggleMenu(el) {
     // position the newly-visible menu.
 
     // Mobile screens do not get this adjustment.
-    if (window.innerWidth < 768) {
+    if (IsMobile()) {
         return;
     }
 
@@ -141,6 +175,14 @@ function WhichSide(el) {
 // This is a helper function called by ToggleMenu, which handles switching the
 // hidden state of the menu being shown / hidden.
 function Not (x) { return !x; }
+
+// This is a helper function to determine whether the user is "on a mobile
+// device". This is used in other functions to bypass certain functionality,
+// because the navigation on small screens functions as an accordion UI, rather
+// than flyout submenus.
+function IsMobile() {
+    return window.innerWidth < 768 ? true : false;
+}
 
 /*
 Below this comment is the prototype we received from Rich.

@@ -30,13 +30,10 @@ Some items may get triaged into the lower sections of the document, and either n
 
 ### Interaction
 
-- [ ] Menus currently stay open until closed, allowing multiple open menus (and deeper menus to remember that they are opened). Instead, menus should automatically close when not needed, showing in all cases only the most minimal set of visible elements.
+- ~~Menus currently stay open until closed, allowing multiple open menus (and deeper menus to remember that they are opened).~~
 
 - ~~Need to explicitly set focus to the parent toggle when closing a menu via the escape key (i.e. focus on what you effectively just clicked on)~~
 
-- [ ] Menu offsets should be re-calculated as windows re-size?
-
-- [ ] Menus should collapse when focus leaves the menu element
 
 ### Layouts
 
@@ -80,6 +77,13 @@ The following items are known to be less than ideal, but tackling them at the mo
 
   This item will require a general restructuring of the page regions, because the search and vertical nav are in completely separate layers. Swapping them via CSS will likely move the search bar below the entire content area unless the page is restructured.
 
+- [ ] Menus should collapse when focus leaves the menu element
+
+  This item proved frustratingly tricky to implement during an initial experiment, so we decided to close menus when clicking anywhere on the site that isn't a menu element.
+
+- [ ] Menu offsets should be re-calculated as windows re-size?
+
+  This is related to the above item. It applies only to menus in the vertical configuration, and only when the user makes the screen narrow enough that the responsiveness kicks in. A workaround is that the user can either close/re-open the menu, or refresh the page. As we expect most sites to be using the horizontal menu layout, this could be something we tolerate for now.
 
 ---
 ## Raw notes
