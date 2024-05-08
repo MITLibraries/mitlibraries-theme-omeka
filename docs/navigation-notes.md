@@ -1,10 +1,19 @@
 # Notes about the navigation system
 
-Items get added to this list as I notice something that needs adjusted. As they are completed, they get cross off.
+Items get added to this list as I notice something that needs adjusted. As they are completed, they get crossed off.
 
 Some items may get triaged into the lower sections of the document, and either noted as an open question for future investigation, or set as deferred items that need more bandwidth than I have right now.
 
-## Punch list
+## Open punch list
+
+### Compound list items
+
+- [ ] The menugroup shading (on the `li` element) is shown only for mouse interactions (the `:hover` pseudoselector). Can this be extended to keyboard users and other users?
+
+- [ ] Flash of competing styles when menugroup shading is applied - could this be scoped only to actually-compound elements?
+
+
+## Completed items
 
 ### Hamburger icon
 
@@ -22,10 +31,6 @@ Some items may get triaged into the lower sections of the document, and either n
 
 - ~~Prevent the `button` element from wrapping below a menu item~~
 
-- [ ] The menugroup shading (on the `li` element) is shown only for mouse interactions (the `:hover` pseudoselector). Can this be extended to keyboard users and other users?
-
-- [ ] Flash of competing styles when menugroup shading is applied - could this be scoped only to actually-compound elements?
-
 - ~~Can the carat be moved closer to the menu text? (CSS rules only to change)~~
 
 ### Interaction
@@ -37,18 +42,14 @@ Some items may get triaged into the lower sections of the document, and either n
 
 ### Layouts
 
-- [ ] Mobile rendering does not indicate what elements are in a sub-menu, so hierarchy awareness is mostly impossible. **Trying to use indenting for this**
+- ~~Mobile rendering does not indicate what elements are in a sub-menu, so hierarchy awareness is mostly impossible.~~
 
-![image](subnav-mobile-styles.png)
-
-- ~~Styling is not consistent for mobile displays of horizontal and vertical menus (compare below image with one above) **Use the horizontal styling (shaded background, bottom border, maybe with box shadow)**~~
+- ~~Styling is not consistent for mobile displays of horizontal and vertical menus (compare below image with one above)~~
 
 - ~~Need conditional logic to open a submenu toward the center of the screen (not always to the right)~~
 
 - ~~Re-check font sizes between browsers on horizontal menu, and look for gaps above/below.~~
 
-
----
 
 ## Open questions (do later?)
 
@@ -67,8 +68,6 @@ The following items have been raised as questions that should be considered, but
 - [ ] What contrast level is needed for the menugroup? Horizontal menus currently use much less contrast (because that menu has a light gray background, while vertical menus have a white background)
 
 
----
-
 ## Deferred items
 
 The following items are known to be less than ideal, but tackling them at the moment is not feasible given our bandwidth.
@@ -84,8 +83,3 @@ The following items are known to be less than ideal, but tackling them at the mo
 - [ ] Menu offsets should be re-calculated as windows re-size?
 
   This is related to the above item. It applies only to menus in the vertical configuration, and only when the user makes the screen narrow enough that the responsiveness kicks in. A workaround is that the user can either close/re-open the menu, or refresh the page. As we expect most sites to be using the horizontal menu layout, this could be something we tolerate for now.
-
----
-## Raw notes
-
-...
