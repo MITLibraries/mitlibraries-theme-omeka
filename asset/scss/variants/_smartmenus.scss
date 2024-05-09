@@ -6,6 +6,8 @@ ul.navigation.sm-mint {
 
         .sub-arrow {
             border-color: $color-menu-arrow transparent transparent transparent;
+            background-color: $color-menu-arrow;
+            color: $color-menu-accent-arrow;
         }
     }
 
@@ -64,5 +66,11 @@ ul.navigation.sm-mint {
     .scroll-up-arrow,
     .scroll-down-arrow {
         border-color: $color-menu-accent;
+    }
+}
+
+@media (min-width: $bp-screen-md) {
+    ul.navigation.sm-mint li a .sub-arrow {
+        background-color: transparent;
     }
 }

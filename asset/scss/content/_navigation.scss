@@ -1,4 +1,10 @@
+#navbar-container {
+    padding-top: 0.5rem;
+}
+
 ul.navigation.sm-mint {
+    background: inherit;
+    border-top: none;
     z-index: 999; // This needs to be lower than what lightbox gallery uses (~1000-1050).
 
     li {
@@ -26,5 +32,97 @@ ul.navigation.sm-mint {
 
     &.sm-vertical {
         border-width: 1px;
+    }
+}
+
+.main-menu-btn {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    left: 10px;
+    text-indent: 28px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+}
+
+/* hamburger icon */
+.main-menu-btn-icon,
+.main-menu-btn-icon::before,
+.main-menu-btn-icon::after {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    height: 2px;
+    width: 24px;
+    background: #000;
+    transition: all 0.25s;
+}
+
+.main-menu-btn-icon::before {
+    content: '';
+    top: -7px;
+    left: 0;
+}
+
+.main-menu-btn-icon::after {
+    content: '';
+    top: 7px;
+    left: 0;
+}
+
+/* x icon */
+#main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon {
+    height: 0;
+    background: transparent;
+}
+
+#main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon::before {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#main-menu-state:checked ~ .main-menu-btn .main-menu-btn-icon::after {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+/* hide menu state checkbox (keep it visible to screen readers) */
+#main-menu-state {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+}
+
+/* hide the menu in mobile view */
+#main-menu-state:not(:checked) ~ ul.navigation {
+    display: none;
+}
+
+#main-menu-state:checked ~ ul.navigation {
+    display: block;
+}
+
+@media (min-width: $bp-screen-md) {
+    #navbar-container {
+        padding-top: 0;
+    }
+
+    /* hide the button in desktop view */
+    .main-menu-btn {
+        position: absolute;
+        top: -99999px;
+    }
+
+    /* always show the menu in desktop view */
+    #main-menu-state:not(:checked) ~ ul.navigation {
+        display: block;
     }
 }

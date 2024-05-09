@@ -9,7 +9,6 @@
 
     .wrap-header-local {
         background: $black;
-        box-shadow: 0 0 5px $shadow;
         color: $white;
         margin-top: -6em;
         padding: 0;
@@ -31,5 +30,11 @@
         p.child-tagline {
             font-size: 1.6rem;
         }
+    }
+}
+
+@media (min-width: $bp-screen-md) {
+    .wrap-outer-header-local .wrap-header-local {
+        box-shadow: 0 0 5px $shadow;
     }
 }
