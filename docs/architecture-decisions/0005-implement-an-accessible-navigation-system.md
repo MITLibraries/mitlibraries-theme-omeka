@@ -1,4 +1,4 @@
-# 5. Implement an accessible navigation system
+# 5. Using SmartMenus 1 for navigation menus
 
 Date: 2024-03-22
 
@@ -8,12 +8,16 @@ Accepted
 
 ## Context
 
-Our initial releases of this theme used the [SmartMenus](https://www.smartmenus.org/) library to build its
+Our initial releases of this theme use the [SmartMenus](https://www.smartmenus.org/) library to build its
 navigation menus. While this library is easy to implement and pretty useful, its
 output was flagged during usability and accessibility testing as needing some
 improvements.
 
-The markup which the user finally interacts with looks like this:
+The problem is that, for users relying on a keyboard or a screen reader to
+navigate the platform, attempting to close a submenu in the navigation also
+causes the user follow the link to the submenu's parent page.
+
+The markup which the user interacts with looks like this:
 
 ```html
 <nav aria-label="Under the Lens: Women Biologists and Chemists at MIT (1865-2024)">
@@ -36,13 +40,23 @@ The markup which the user finally interacts with looks like this:
 ```
 
 The issue is that the element triggering the flyout menu (the 
-`<span class="sub-arrow"></span>` tag) is _inside_ the anchor element, making it
-challenging (if not impossible) for users of assistive technologies to separate
-their interactions with the menu link and the submenu toggle.
+`<span class="sub-arrow"></span>` tag on line six above) is _inside_ the anchor
+element, making it challenging for users relying on screen readers or keyboard
+navigation to get around an exhibit. While it is possible to open all of the
+submenus like this, attempting to close a submenu gets intercepted by the
+containing anchor element, resulting in an unintentional navigation to that
+page.
+
+Omeka provides other ways to get around an exhibit - for example the Next and
+Previous buttons on all pages, and individual pages can also provide blocks of
+links to their child pages. As a result, we believe that Omeka is still usable
+by users who rely on these technologies - but this is a bug which should be
+prioritized for resolution.
 
 The current release of SmartMenus (1.2.1) does not support placing this toggle
 element outside of the link element, so it will be necessary to replace it with
-a library which does support this behavior.
+a library which does support this behavior. We have evaluated several options
+for resolving this issue:
 
 
 ### Option 1: SmartMenus 2
@@ -50,8 +64,8 @@ a library which does support this behavior.
 The maintainer for SmartMenus is aware of this problem in the library, as we and
 others have reported it via GitHub (see [issue 204](https://github.com/vadikom/smartmenus/issues/204) and [issue 231](https://github.com/vadikom/smartmenus/issues/231)). He has
 committed to including this as an improvement in the future release of
-SmartMenus 2, and the documentation already available [includes this among its available
-features](https://configurator.smartmenus.org/).
+SmartMenus 2, and the documentation already available [includes this among its
+available features](https://configurator.smartmenus.org/).
 
 However, at the time of writing [SmartMenus 2 is only available via one alpha
 release](https://github.com/vadikom/smartmenus/releases) - and the maintainer has [cautioned us against using it in a production
@@ -168,47 +182,42 @@ The styling rules required for this approach should likewise be minimal.
 
 #### Drawbacks of a bespoke approach
 
-The maxim "if you aren't using a framework, you are building one" applies here.
-While the amount of code required is small, it is still code for which we are
-responsible. That code will require us to commit to maintaining the knowledge of
-how it works and how to troubleshoot it, and to commit to having the bandwidth
-to respond to problems as they are reported.
+While conceptually simple, the bespoke approach proved to be beyond our
+current bandwidth by the time all the use cases were resolved.
 
-This bespoke approach is also not just javascript, but all the associated
-styling rules for the menu to be rendered in both a vertical and horizontal
-layout.
+We attempted to develop a bespoke navigation library for this theme, starting
+from the code which Rich shared. The result of those efforts can be found on
+the [post-107-bespoke](https://github.com/MITLibraries/mitlibraries-theme-omeka/tree/post-107-bespoke) branch of this repository.
 
-In addition, because this code is so small, it has likely been written by some
-other group of developers - and it would be preferable to leverage their work
-rather than repeat it.
-
-Ultimately, though, the review which we've conducted of existing menu libraries
-has not identified such a suitable existing library at this time.
+Follow-up testing showed that the solution was more suitable for users who rely
+on assistive technologies, but the interaction needs for sighted and desktop
+users were not adequately met in the available timeframe.
 
 
-## Decision: Option 4
+## Decision: Keep using SmartMenus 1, at least for now
 
-We will implement option 4 - a bespoke solution. We will develop, and maintain,
-a small set of javascript and stylesheet rules for the navigation menu in this
-theme.
+With the failure of option 4 to coalesce into a generally suitable solution in
+the time available, we are choosing to continue using SmartMenus 1, at least in
+the short term.
 
-If this proves sustainable, the feature will be considered for promotion to the
-overall style library in order to make the feature available to our other
-web applications.
+We will continue to watch for future releases of SmartMenus which may resolve
+this problem. This work has also identified the need for a general navigation
+solution within [our style library](https://mitlibraries.github.io/mitlib-style/), which could provide an opportunity for us to
+return to this problem space and devote additional time to finishing the bespoke
+approach.
 
-Our ultimate preference for an externally-defined navigation library will mean
-that we continue to monitor the development of both SmartMenus and Accessible
-Menu, with an eye toward adopting one should a suitable version be released.
+The remaining items that need to be resolved have been noted in that branch, in
+the form of a [punch list](https://github.com/MITLibraries/mitlibraries-theme-omeka/blob/post-107-bespoke/docs/navigation-notes.md) that was maintained during the initial development.
 
 
 ## Consequences
 
-We will work from the prototypes and examples which Rich has provided and write
-our own bespoke solution for navigation menus in Omeka. This solution will:
+The usability of our digital exhibits platform is less straightforward than we
+want it to be.
 
-1. Make use of appropriate HTML tags as much as possible, with toggles for
-   triggering submenus separate from the navigation links - at any depth.
-1. Implement minimal javascript.
-1. Include styling rules for both a horizontal and vertical implementation,
-   while the markup and javascript for each will be the same.
-1. Be evaluated for promotion to our style guide.
+The theme applied to this platform remains somewhat simpler without a bespoke
+navigation system that would need ongoing maintenance.
+
+Our organization as a whole continues to not have a navigation menu as part of
+its style library. As a result, our various platforms with navigation menus all
+implement their own approaches to a shared problem.
