@@ -11,14 +11,8 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
 
-      - name: Exit if not main
-        run: |
-          if [[ "${{ github.ref }}" != "refs/heads/main" ]]; then
-            echo "Branch is not main, exiting."
-            exit 0
-          fi
-
       - name: deploy-theme
+        if: github.ref == 'refs/heads/main'
         run: |
           chown -R :client .
           chmod -R g+w .
