@@ -5,6 +5,7 @@ on:
 
 jobs:
   deploy-theme:
+    if: github.ref == 'refs/heads/main'
     name: deploy-theme
     runs-on: [self-hosted, linux, prod]
     steps:
@@ -12,7 +13,6 @@ jobs:
         uses: actions/checkout@v3
 
       - name: deploy-theme
-        if: github.ref == 'refs/heads/main'
         run: |
           chown -R :client .
           chmod -R g+w .
