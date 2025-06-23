@@ -14,10 +14,16 @@ jobs:
   deploy-theme:
     name: deploy-theme
     runs-on: [self-hosted, linux, stage]
-    env:
-      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
     steps:
-      - uses: actions/checkout@v3
+      - name: setup-git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      - name: clone-repo
+        run: |
+          git clone https://github.com/${{ github.repository }} repo
+          cd repo
+          git checkout ${{ github.ref_name }}
       - name: deploy-theme
         run: |
           chown -R :client .

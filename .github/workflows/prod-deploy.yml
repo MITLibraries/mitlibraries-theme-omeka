@@ -9,9 +9,16 @@ jobs:
     name: deploy-theme
     runs-on: [self-hosted, linux, prod]
     steps:
-      - name: checkout code
-        uses: actions/checkout@v3
-
+      - name: setup-git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+      - name: clone-repo
+        run: |
+          git clone https://github.com/${{ github.repository }} repo
+          cd repo
+          git fetch --tags
+          git checkout tags/${{ github.event.release.tag_name  }}
       - name: deploy-theme
         run: |
           chown -R :client .
