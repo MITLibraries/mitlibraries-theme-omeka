@@ -9,6 +9,8 @@ jobs:
     name: deploy-theme
     runs-on: [self-hosted, linux, prod]
     steps:
+      - name: clean-directory
+        run: rm -rf repo
       - name: setup-git
         run: |
           git config --global user.name "github-actions"
