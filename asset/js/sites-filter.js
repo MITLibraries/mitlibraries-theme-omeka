@@ -97,7 +97,7 @@ function ActivateFilter() {
 };
 
 function LoadItemSet( id ) {
-    let url = `/api/items?item_set_id=${id}`;
+    let url = `/api/items?item_set_id=${id}&sort_by=created&sort_order=desc`;
     document.getElementById("site-grid").innerHTML = "";
     $.get( url, function( data ) {
         data.map(RenderSite);
