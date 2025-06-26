@@ -4,6 +4,12 @@
 // #CONTENT
 // ----------------------------
 
+// Try setting a white background to .wrap-page
+.wrap-page {
+    background-color: $white;
+    color: $black;
+}
+
 // Remove padding-top from wrap-content everywhere.
 .wrap-content {
     padding-top: inherit;
