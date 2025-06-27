@@ -4,6 +4,14 @@
 // #CONTENT
 // ----------------------------
 
+// carlj, 2025-06-27, add small snippet of styles to remove unwanted horizontal grey bar
+// Make everything inside .wrap-page appear on a white background to prevent 
+// the body background playing peekaboo
+.wrap-page {
+  background-color: $white;
+  color: $black;
+}
+
 // Remove padding-top from wrap-content everywhere.
 .wrap-content {
     padding-top: inherit;
