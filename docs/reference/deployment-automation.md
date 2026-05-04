@@ -21,13 +21,13 @@ Head to **Settings > Actions > Runners** for the repo and click the **New self-h
 When creating the GitHub Actions workflows, be sure to specify
 
 ```bash
-    runs-on: [self-hosted, linux, stage]
+    runs-on: [self-hosted, Linux, stage]
 ```
 
 for the stage runner/server and specify
 
 ```bash
-    runs-on: [self-hosted, linux, prod]
+    runs-on: [self-hosted, Linux, prod]
 ```
 
 for the production runner/server.

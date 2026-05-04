@@ -1,5 +1,8 @@
-.PHONY: help
 SHELL=/bin/bash
+DATETIME:=$(shell date -u +%Y%m%dT%H%M%SZ)
+DEPLOY_ROOT := /var/www/html/themes/mitlibraries-theme-omeka
+
+.PHONY: help clean fetch updates update-js deploy
 
 help: ## Print this message
 	@awk 'BEGIN { FS = ":.*##"; print "Usage:  make <target>\n\nTargets:" } \
@@ -35,11 +38,10 @@ update-js: ## Synchronize needed libraries from node_modules to asset/js
 	cp node_modules/smartmenus/dist/css/sm-mint/sm-mint.css asset/js/smartmenus/dist/css/sm-mint/sm-mint.css
 
 deploy: ## Deploys the theme on a host server
-	rsync asset /var/www/html/themes/mitlibraries-theme-omeka/asset/
-	rsync theme.jpg /var/www/html/themes/mitlibraries-theme-omeka/
-	rsync --recursive --delete asset/css/ /var/www/html/themes/mitlibraries-theme-omeka/asset/css/
-	rsync --recursive --delete asset/img/ /var/www/html/themes/mitlibraries-theme-omeka/asset/img/
-	rsync --recursive --delete asset/js/ /var/www/html/themes/mitlibraries-theme-omeka/asset/js/
-	rsync --recursive --delete config/ /var/www/html/themes/mitlibraries-theme-omeka/config/
-	rsync --recursive --delete helper/ /var/www/html/themes/mitlibraries-theme-omeka/helper/
-	rsync --recursive --delete view/ /var/www/html/themes/mitlibraries-theme-omeka/view/
+	rsync --recursive --delete --verbose asset/css/ $(DEPLOY_ROOT)/asset/css/
+	rsync --recursive --delete --verbose asset/img/ $(DEPLOY_ROOT)/asset/img/
+	rsync --recursive --delete --verbose asset/js/ $(DEPLOY_ROOT)/asset/js/
+	rsync --recursive --delete --verbose config/ $(DEPLOY_ROOT)/config/
+	rsync --recursive --delete --verbose helper/ $(DEPLOY_ROOT)/helper/
+	rsync --recursive --delete --verbose view/ $(DEPLOY_ROOT)/view/
+	rsync --verbose theme.jpg $(DEPLOY_ROOT)/

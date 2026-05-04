@@ -4,23 +4,19 @@ on:
 
 jobs:
   deploy-theme:
-    name: deploy-theme
-    runs-on: [self-hosted, linux, stage]
+    name: Deploy Theme
+    runs-on: [self-hosted, Linux, stage]
     steps:
-      - name: clean-directory
-        run: rm -rf repo
-      - name: setup-git
+      - name: Git Checkout
+        id: git-checkout
+        uses: actions/checkout@v6
+
+      - name: Deploy Theme
+        id: deploy-theme
+        run: make deploy
+
+      - name: Summary
+        id: summary
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-      - name: clone-repo
-        run: |
-          git clone https://github.com/${{ github.repository }} repo
-          cd repo
-          git checkout ${{ github.sha }}
-      - name: deploy-theme
-        run: |
-          chown -R :client .
-          chmod -R g+w .
-          make deploy
-          echo "Deployed theme version $(grep 'version =' config/theme.ini | awk '{print $3}')" >> $GITHUB_STEP_SUMMARY
+          VERSION=$(grep 'version =' config/theme.ini | awk '{print $3}')
+          echo "Deployed theme version $VERSION" >> $GITHUB_STEP_SUMMARY
